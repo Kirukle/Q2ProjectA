@@ -9,14 +9,11 @@ public class Jumpy : MonoBehaviour
     public float Speed = 2f;
     public float jump = 10f;
     public float Gravity = -9.8f;
-    public bool isGrounded;
+    public bool canJump;
 
     float m_MaxDistance = 1f;
 
-    bool m_HitDetect;
-
-    Collider m_collider;
-    RaycastHit m_Hit;
+   
 
     // Start is called before the first frame update
     void Start()
@@ -29,15 +26,15 @@ public class Jumpy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float horizontal = Input.GetAxis("Horizontal") * Speed;
-        float vertical = Input.GetAxis("Vertical") * Speed;
-        Vector3 move = transform.right * horizontal + transform.forward * vertical;
-        characterController.Move(move * Speed * Time.deltaTime);
-
-       
+        //float horizontal = Input.GetAxis("Horizontal") * Speed;
+        //float vertical = Input.GetAxis("Vertical") * Speed;
+        //Vector3 move = transform.right * horizontal + transform.forward * vertical;
+        //characterController.Move(move * Speed * Time.deltaTime);
 
 
-        if (Input.GetButtonDown("Jump") && transform.position.y< 0.12f)
+
+
+        if (Input.GetButtonDown("Jump") && Physics.BoxCast(transform.position, transform.lossyScale, Vector3.down * 0.5f, Quaternion.identity, m_MaxDistance) && canJump == true)
         {
 
             velocity.y = jump;
