@@ -195,7 +195,7 @@ GameObject:
   - component: {fileID: 399024718}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Intractable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -291,18 +291,23 @@ MonoBehaviour:
   onScan:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 1817337189}
+        m_TargetAssemblyTypeName: UnityEngine.Collider, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 0
+        m_CallState: 2
+--- !u!4 &488899904 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7449369280203283896, guid: fe089a1c62858ed4baab2129e6e18f8e, type: 3}
+  m_PrefabInstance: {fileID: 739280999}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &739280999
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -516,10 +521,23 @@ PrefabInstance:
       propertyPath: m_Name
       value: Capsule
       objectReference: {fileID: 0}
+    - target: {fileID: 3204793680783039016, guid: d32b813d8bac458469a830a19b412bec, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4808609481113702983, guid: d32b813d8bac458469a830a19b412bec, type: 3}
+      propertyPath: Cam
+      value: 
+      objectReference: {fileID: 488899904}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d32b813d8bac458469a830a19b412bec, type: 3}
 --- !u!4 &1307909823 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 830272493318404262, guid: d32b813d8bac458469a830a19b412bec, type: 3}
+  m_PrefabInstance: {fileID: 1307909822}
+  m_PrefabAsset: {fileID: 0}
+--- !u!143 &1817337189 stripped
+CharacterController:
+  m_CorrespondingSourceObject: {fileID: 3345390955139394215, guid: d32b813d8bac458469a830a19b412bec, type: 3}
   m_PrefabInstance: {fileID: 1307909822}
   m_PrefabAsset: {fileID: 0}
