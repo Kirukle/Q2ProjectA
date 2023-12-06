@@ -1,21 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class ThirdPerson : MonoBehaviour
 {
 
-    private const float YMin = -50.0f;
+    private const float YMin = -5.3f;
     private const float YMax = 50.0f;
 
     public Transform lookAt;
 
     public Transform Player;
 
+   
+
     public float distance = 10.0f;
     private float currentX = 0.0f;
     private float currentY = 0.0f;
     public float sensitivity = 40.0f;
+
+    
+
+
+   
+
+    RaycastHit hit;
+
+   
 
 
     // Start is called before the first frame update
@@ -23,6 +35,8 @@ public class ThirdPerson : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        
     }
 
     // Update is called once per frame
@@ -37,5 +51,16 @@ public class ThirdPerson : MonoBehaviour
         Quaternion rotation = Quaternion.Euler(currentY, currentX, 0);
         transform.position = lookAt.position + rotation * Direction;
         transform.LookAt(lookAt.position);
+
+        
+
+      
+       
     }
+
+    
+
+        
+
+    
 }
