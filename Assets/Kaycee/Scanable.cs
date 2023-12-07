@@ -13,7 +13,7 @@ public class Scanable : MonoBehaviour
     {
         if (activated == true)
         {
-
+            Instantiate(textPrefab);
         }
     }
 }
