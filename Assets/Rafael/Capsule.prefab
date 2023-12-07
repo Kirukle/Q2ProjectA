@@ -97,7 +97,7 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 2
+  m_Height: 1.61
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!143 &291285579862748739
@@ -111,7 +111,7 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 2
+  m_Height: 1.7
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
@@ -132,7 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Controller: {fileID: 291285579862748739}
   speed: 10
-  sprint: 30
+  sprint: 20
   CanMove: 1
   Cam: {fileID: 0}
   CanSprint: 1
@@ -178,9 +178,9 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   jumpTime: 0
-  size: {x: 1, y: 0.3, z: 1}
-  offset: 0.9
-  m_MaxDistance: 1
+  size: {x: 0.7, y: 0.3, z: 0.7}
+  offset: 0.85
+  m_MaxDistance: 0.85
 --- !u!114 &291285579862748762
 MonoBehaviour:
   m_ObjectHideFlags: 0

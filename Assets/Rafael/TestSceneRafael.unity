@@ -1000,28 +1000,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 291285579862748738, guid: 70ecec75d801fb74e845034b4ebfd5cb, type: 3}
       propertyPath: m_Name
-      value: Capsule
-      objectReference: {fileID: 0}
-    - target: {fileID: 291285579862748739, guid: 70ecec75d801fb74e845034b4ebfd5cb, type: 3}
-      propertyPath: m_Height
-      value: 1.7
+      value: player
       objectReference: {fileID: 0}
     - target: {fileID: 291285579862748760, guid: 70ecec75d801fb74e845034b4ebfd5cb, type: 3}
       propertyPath: Cam
       value: 
       objectReference: {fileID: 1270057646}
-    - target: {fileID: 291285579862748761, guid: 70ecec75d801fb74e845034b4ebfd5cb, type: 3}
-      propertyPath: offset
-      value: 0.85
-      objectReference: {fileID: 0}
-    - target: {fileID: 291285579862748761, guid: 70ecec75d801fb74e845034b4ebfd5cb, type: 3}
-      propertyPath: m_MaxDistance
-      value: 0.85
-      objectReference: {fileID: 0}
-    - target: {fileID: 291285579862748764, guid: 70ecec75d801fb74e845034b4ebfd5cb, type: 3}
-      propertyPath: m_Height
-      value: 1.61
-      objectReference: {fileID: 0}
     - target: {fileID: 291285579862748767, guid: 70ecec75d801fb74e845034b4ebfd5cb, type: 3}
       propertyPath: m_RootOrder
       value: 3
