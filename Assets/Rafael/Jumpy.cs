@@ -11,7 +11,16 @@ public class Jumpy : MonoBehaviour
     public float Gravity = -9.8f;
     public bool canJump;
 
-    float m_MaxDistance = 1f;
+    public AnimationCurve Test;
+    public float jumpTime;
+
+    [Header("Boxcast Settings")]
+    public Vector3 size;
+    public float offset;
+    public float m_MaxDistance = 0.09f;
+
+    public bool Grounded => Physics.BoxCast(transform.position, size / 2, Vector3.down * offset, Quaternion.identity, m_MaxDistance);
+
 
    
 
@@ -21,7 +30,7 @@ public class Jumpy : MonoBehaviour
 
     }
 
-  
+
 
     // Update is called once per frame
     void Update()
@@ -32,23 +41,45 @@ public class Jumpy : MonoBehaviour
         //characterController.Move(move * Speed * Time.deltaTime);
 
 
+        Test.Evaluate(0.5f);
 
-
-        if (Input.GetButtonDown("Jump") && Physics.BoxCast(transform.position, transform.lossyScale, Vector3.down * 0.5f, Quaternion.identity, m_MaxDistance) && canJump == true)
+        if (Input.GetButtonDown("Jump") && Grounded && canJump == true)
         {
+            jumpTime = 0;
 
-            velocity.y = jump;
 
         }
         else
         {
 
-            velocity.y += Gravity * Time.deltaTime;
+             velocity.y += Gravity * Time.deltaTime;
+            
+
+
+
+        }
+        if (Input.GetButton("Jump") && Grounded)
+        {
+            jumpTime += Time.deltaTime;
+            velocity.y = Test.Evaluate(jumpTime);
+
+
+
+        }
+        else if (Input.GetButtonUp("Jump") && Grounded )
+        {
+
+            jumpTime = 0;
 
         }
         
             characterController.Move(velocity * Time.deltaTime);
 
         
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireCube(transform.position + Vector3.down * offset, size);
     }
 }

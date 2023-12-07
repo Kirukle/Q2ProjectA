@@ -132,8 +132,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Controller: {fileID: 291285579862748739}
   speed: 10
+  sprint: 30
   CanMove: 1
   Cam: {fileID: 0}
+  CanSprint: 1
 --- !u!114 &291285579862748761
 MonoBehaviour:
   m_ObjectHideFlags: 0

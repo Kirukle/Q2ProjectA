@@ -5,7 +5,7 @@ using UnityEngine;
 public class RaycastTest : MonoBehaviour
 {
 
-    public float m_MaxDistance = 1f;
+    public float m_MaxDistance = 0.09f;
 
    
 
@@ -28,7 +28,7 @@ public class RaycastTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Physics.BoxCast(transform.position, transform.lossyScale, Vector3.down * 0.5f, Quaternion.identity, m_MaxDistance))
+        if (Physics.BoxCast(transform.position, transform.lossyScale, Vector3.down * 0.09f, Quaternion.identity, m_MaxDistance))
         {
 
             Debug.Log("Hit");
@@ -38,7 +38,7 @@ public class RaycastTest : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        DrawBoxCast(transform.position, transform.position + m_MaxDistance * Vector3.down, transform.lossyScale, transform.rotation);
+        //DrawBoxCast(transform.position, transform.position + m_MaxDistance * Vector3.down, transform.lossyScale, transform.rotation);
 
 
 

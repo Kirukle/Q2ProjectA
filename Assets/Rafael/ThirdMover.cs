@@ -10,9 +10,13 @@ public class ThirdMover : MonoBehaviour
 
     public float speed;
 
+    public float sprint;
+
     public bool CanMove;
 
     public Transform Cam;
+
+    public bool CanSprint;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +28,10 @@ public class ThirdMover : MonoBehaviour
     void Update()
     {
 
-      if(CanMove == true)
+
+        
+
+        if (CanMove == true)
         {
 
 
@@ -39,27 +46,35 @@ public class ThirdMover : MonoBehaviour
 
             Controller.Move(Movement);
 
-            if (Movement.magnitude != 0f)
+            //if (Movement.magnitude != 0f)
+            //{
+            //    transform.Rotate(Vector3.up * Input.GetAxis("Mouse X") * Cam.GetComponent<ThirdPerson>().sensitivity * Time.deltaTime);
+            //    Quaternion CamRotation = Cam.rotation;
+            //    CamRotation.x = 0f;
+            //    CamRotation.z = 0f;
+
+            //    transform.rotation = Quaternion.Lerp(transform.rotation, CamRotation, 0.1f);
+
+
+
+            //}
+
+            if (Input.GetKey(KeyCode.LeftShift) && CanSprint == true)
             {
-                transform.Rotate(Vector3.up * Input.GetAxis("Mouse X") * Cam.GetComponent<ThirdPerson>().sensitivity * Time.deltaTime);
-                Quaternion CamRotation = Cam.rotation;
-                CamRotation.x = 0f;
-                CamRotation.z = 0f;
 
-                transform.rotation = Quaternion.Lerp(transform.rotation, CamRotation, 0.1f);
-
-
+                speed = sprint;
 
             }
+            else
+            {
 
-
+                speed = 10.0f;
+            }
 
         }
 
 
-        
+
     }
-
-
   
 }
