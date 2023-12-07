@@ -74,7 +74,11 @@ public class Jumpy : MonoBehaviour
         }
         
             characterController.Move(velocity * Time.deltaTime);
+        if (Grounded)
+        {
+            velocity.y = 0;
 
+        }
         
     }
 
