@@ -1,16 +1,12 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Interactables : MonoBehaviour
+public class Interactable : MonoBehaviour
 {
     public UnityEvent onScan;
 
-    private void OnCollisionEnter(Collision collision)
+    public void Scan()
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            Debug.Log("Collision occurred with: " + collision.gameObject.name);
-            onScan.Invoke();
-        }
+        onScan.Invoke();
     }
 }
