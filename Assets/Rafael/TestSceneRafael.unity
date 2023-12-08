@@ -1017,7 +1017,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2141386976}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 16ed47d253685374494d8c11bb5cf710, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -1080,7 +1080,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2141386976}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.01, y: 1.07, z: -0.44}
+  m_LocalPosition: {x: 13.01, y: 2.88, z: -0.44}
   m_LocalScale: {x: 3, y: 1, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1097,17 +1097,45 @@ PrefabInstance:
       propertyPath: m_Name
       value: player
       objectReference: {fileID: 0}
+    - target: {fileID: 291285579862748739, guid: 70ecec75d801fb74e845034b4ebfd5cb, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 291285579862748760, guid: 70ecec75d801fb74e845034b4ebfd5cb, type: 3}
       propertyPath: Cam
       value: 
       objectReference: {fileID: 1270057646}
     - target: {fileID: 291285579862748761, guid: 70ecec75d801fb74e845034b4ebfd5cb, type: 3}
+      propertyPath: offset
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 291285579862748761, guid: 70ecec75d801fb74e845034b4ebfd5cb, type: 3}
       propertyPath: size.x
-      value: 0.7
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 291285579862748761, guid: 70ecec75d801fb74e845034b4ebfd5cb, type: 3}
       propertyPath: size.z
-      value: 0.7
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 291285579862748761, guid: 70ecec75d801fb74e845034b4ebfd5cb, type: 3}
+      propertyPath: m_MaxDistance
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 291285579862748764, guid: 70ecec75d801fb74e845034b4ebfd5cb, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 291285579862748764, guid: 70ecec75d801fb74e845034b4ebfd5cb, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 291285579862748764, guid: 70ecec75d801fb74e845034b4ebfd5cb, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 291285579862748765, guid: 70ecec75d801fb74e845034b4ebfd5cb, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 291285579862748767, guid: 70ecec75d801fb74e845034b4ebfd5cb, type: 3}
       propertyPath: m_RootOrder

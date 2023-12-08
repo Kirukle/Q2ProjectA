@@ -27,10 +27,10 @@ public class Jumpy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+       
     }
 
-
+    
 
     // Update is called once per frame
     void Update()
@@ -62,6 +62,7 @@ public class Jumpy : MonoBehaviour
         {
             jumpTime += Time.deltaTime;
             velocity.y = Test.Evaluate(jumpTime);
+            
 
 
 
