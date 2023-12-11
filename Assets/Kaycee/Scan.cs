@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Scan : MonoBehaviour
 {
-    public float ScanRadius;
+    public float ScanRadius = 5f;
     public LayerMask CanBeScanned;
     public int WaitTime;
     private bool onCooldown = false;
@@ -29,12 +29,8 @@ public class Scan : MonoBehaviour
         Collider[] PossibleScanDetection = Physics.OverlapSphere(transform.position, ScanRadius, CanBeScanned);
         foreach (Collider col in PossibleScanDetection)
         {
-
-            
             col.GetComponent<Scanable>().activated = true;
-            
-            
         }
-        
     }
+
 }
