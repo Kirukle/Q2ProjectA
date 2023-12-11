@@ -18,6 +18,8 @@ public class ThirdMover : MonoBehaviour
 
     public bool CanSprint;
 
+   
+
     // Start is called before the first frame update
     void Start()
     {

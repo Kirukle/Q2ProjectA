@@ -19,8 +19,11 @@ public class Jumpy : MonoBehaviour
     public float offset;
     public float m_MaxDistance = 0.09f;
 
+    public bool CanClimb;
     public bool Grounded => Physics.BoxCast(transform.position, size / 2, Vector3.down * offset, Quaternion.identity, m_MaxDistance);
     public bool Ceiling => Physics.BoxCast(transform.position, size / 2, Vector3.up * offset, Quaternion.identity, m_MaxDistance);
+
+    public bool Climbable => Physics.BoxCast(transform.position, size / 2, Vector3.down * offset, Quaternion.identity, m_MaxDistance);
 
 
 
