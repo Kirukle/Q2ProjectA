@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Jumpy : MonoBehaviour
+public class CharJump : MonoBehaviour
 {
     public CharacterController characterController;
     private Vector3 velocity;
@@ -17,13 +17,12 @@ public class Jumpy : MonoBehaviour
     [Header("Boxcast Settings")]
     public Vector3 size;
     public float offset;
+    public Vector3 position;
     public float m_MaxDistance = 0.09f;
-    public Vector3 offsetpos1;
-    public Vector3 offsetpos2;
 
     public bool CanClimb;
-    public bool Grounded => Physics.BoxCast(transform.position + offsetpos1, size / 2, Vector3.down * offset, Quaternion.identity, m_MaxDistance);
-    public bool Ceiling => Physics.BoxCast(transform.position + offsetpos2, size / 2, Vector3.up * offset, Quaternion.identity, m_MaxDistance);
+    public bool Grounded => Physics.BoxCast(transform.position, size / 2, Vector3.down * offset, Quaternion.identity, m_MaxDistance);
+    public bool Ceiling => Physics.BoxCast(transform.position, size / 2, Vector3.up * offset, Quaternion.identity, m_MaxDistance);
 
     public bool Climbable => Physics.BoxCast(transform.position, size / 2, Vector3.down * offset, Quaternion.identity, m_MaxDistance);
 
@@ -32,10 +31,10 @@ public class Jumpy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+
     }
 
-    
+
 
     // Update is called once per frame
     void Update()
@@ -57,8 +56,8 @@ public class Jumpy : MonoBehaviour
         else
         {
 
-             velocity.y += Gravity * Time.deltaTime;
-            
+            velocity.y += Gravity * Time.deltaTime;
+
 
 
 
@@ -67,19 +66,19 @@ public class Jumpy : MonoBehaviour
         {
             jumpTime += Time.deltaTime;
             velocity.y = Test.Evaluate(jumpTime);
-            
+
 
 
 
         }
-        else if (Input.GetButtonUp("Jump") && Grounded )
+        else if (Input.GetButtonUp("Jump") && Grounded)
         {
 
             jumpTime = 0;
 
         }
-        
-            characterController.Move(velocity * Time.deltaTime);
+
+        characterController.Move(velocity * Time.deltaTime);
         if (Grounded)
         {
             velocity.y = 0;
@@ -91,12 +90,12 @@ public class Jumpy : MonoBehaviour
             velocity.y = -3;
 
         }
-        
+
     }
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireCube(transform.position + offsetpos1 + Vector3.down * offset, size);
-        Gizmos.DrawWireCube(transform.position + offsetpos2 + Vector3.up * offset, size);
+        Gizmos.DrawWireCube(transform.position + Vector3.down * offset, size);
+        Gizmos.DrawWireCube(transform.position + Vector3.up * offset, size);
     }
 }
