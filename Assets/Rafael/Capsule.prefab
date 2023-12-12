@@ -11,14 +11,14 @@ GameObject:
   - component: {fileID: 291285579862748767}
   - component: {fileID: 291285579862748766}
   - component: {fileID: 291285579862748765}
-  - component: {fileID: 291285579862748764}
   - component: {fileID: 291285579862748739}
   - component: {fileID: 291285579862748760}
   - component: {fileID: 291285579862748761}
   - component: {fileID: 291285579862748762}
+  - component: {fileID: 2088287998}
   m_Layer: 0
   m_Name: Capsule
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -86,20 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &291285579862748764
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 291285579862748738}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1.61
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!143 &291285579862748739
 CharacterController:
   m_ObjectHideFlags: 0
@@ -181,6 +167,9 @@ MonoBehaviour:
   size: {x: 0.7, y: 0.3, z: 0.7}
   offset: 0.85
   m_MaxDistance: 0.85
+  offsetpos1: {x: 0, y: 0, z: 0}
+  offsetpos2: {x: 0, y: 0, z: 0}
+  CanClimb: 0
 --- !u!114 &291285579862748762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,3 +183,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_MaxDistance: 0.09
+--- !u!65 &2088287998
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291285579862748738}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.61, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
