@@ -13,6 +13,8 @@ public class Jumpy : MonoBehaviour
 
     public AnimationCurve Test;
     public float jumpTime;
+    public AnimationCurve Climb;
+    public float climbTime;
 
     [Header("Boxcast Settings")]
     public Vector3 size;
@@ -20,12 +22,17 @@ public class Jumpy : MonoBehaviour
     public float m_MaxDistance = 0.09f;
     public Vector3 offsetpos1;
     public Vector3 offsetpos2;
+    public Vector3 offsetpos3;
+    public Vector3 sizeclimb;
+    public float climb_MaxDistance = 0.09f;
 
+
+    public LayerMask ClimbWall;
     public bool CanClimb;
     public bool Grounded => Physics.BoxCast(transform.position + offsetpos1, size / 2, Vector3.down * offset, Quaternion.identity, m_MaxDistance);
     public bool Ceiling => Physics.BoxCast(transform.position + offsetpos2, size / 2, Vector3.up * offset, Quaternion.identity, m_MaxDistance);
 
-    public bool Climbable => Physics.BoxCast(transform.position, size / 2, Vector3.down * offset, Quaternion.identity, m_MaxDistance);
+    public bool Climbable => Physics.BoxCast(transform.position + offsetpos3, sizeclimb / 2, Vector3.forward * offset, Quaternion.identity, climb_MaxDistance, ClimbWall);
 
 
 
@@ -47,6 +54,7 @@ public class Jumpy : MonoBehaviour
 
 
         Test.Evaluate(0.5f);
+        Climb.Evaluate(0.5f);
 
         if (Input.GetButtonDown("Jump") && Grounded && canJump == true)
         {
@@ -91,12 +99,27 @@ public class Jumpy : MonoBehaviour
             velocity.y = -3;
 
         }
-        
+
+        if (Input.GetKey(KeyCode.W) && Climbable && CanClimb == true)
+        {
+
+            climbTime += Time.deltaTime;
+            velocity.y = Climb.Evaluate(climbTime);
+
+        }
+        else if (Input.GetKeyUp(KeyCode.W) || Climbable == false)
+        {
+
+            climbTime = 0;
+
+        }
+
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireCube(transform.position + offsetpos1 + Vector3.down * offset, size);
         Gizmos.DrawWireCube(transform.position + offsetpos2 + Vector3.up * offset, size);
+        Gizmos.DrawWireCube(transform.position + offsetpos3 + Vector3.forward * offset, sizeclimb);
     }
 }

@@ -169,6 +169,7 @@ MonoBehaviour:
   m_MaxDistance: 0.85
   offsetpos1: {x: 0, y: 0, z: 0}
   offsetpos2: {x: 0, y: 0, z: 0}
+  offsetpos3: {x: 0, y: 0, z: 0}
   CanClimb: 0
 --- !u!114 &291285579862748762
 MonoBehaviour:
