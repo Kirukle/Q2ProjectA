@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class Jumpy : MonoBehaviour
 {
+
+
+
+    public Vector3 Direction;
     public CharacterController characterController;
     private Vector3 velocity;
     public float Speed = 2f;
     public float jump = 10f;
     public float Gravity = -9.8f;
     public bool canJump;
+    public GameObject player;
 
     public AnimationCurve Test;
     public float jumpTime;
@@ -32,7 +37,7 @@ public class Jumpy : MonoBehaviour
     public bool Grounded => Physics.BoxCast(transform.position + offsetpos1, size / 2, Vector3.down * offset, Quaternion.identity, m_MaxDistance);
     public bool Ceiling => Physics.BoxCast(transform.position + offsetpos2, size / 2, Vector3.up * offset, Quaternion.identity, m_MaxDistance);
 
-    public bool Climbable => Physics.BoxCast(transform.position + offsetpos3, sizeclimb / 2, Vector3.forward * offset, Quaternion.identity, climb_MaxDistance, ClimbWall);
+    public bool Climbable => Physics.BoxCast(transform.position + offsetpos3, sizeclimb / 2, transform.forward * offset, Quaternion.identity, climb_MaxDistance, ClimbWall);
 
 
 
@@ -47,6 +52,19 @@ public class Jumpy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        Vector3 movementDirection = new Vector3(player.GetComponent<ThirdMover>().DirectionHorizon, 0, player.GetComponent<ThirdMover>().DirectionVertical);
+
+        movementDirection.Normalize();
+
+        transform.Translate(movementDirection * Speed * Time.deltaTime, Space.World);
+
+        if(movementDirection != Vector3.zero)
+        {
+            transform.forward = movementDirection;
+
+        }
+
         //float horizontal = Input.GetAxis("Horizontal") * Speed;
         //float vertical = Input.GetAxis("Vertical") * Speed;
         //Vector3 move = transform.right * horizontal + transform.forward * vertical;
@@ -120,6 +138,6 @@ public class Jumpy : MonoBehaviour
     {
         Gizmos.DrawWireCube(transform.position + offsetpos1 + Vector3.down * offset, size);
         Gizmos.DrawWireCube(transform.position + offsetpos2 + Vector3.up * offset, size);
-        Gizmos.DrawWireCube(transform.position + offsetpos3 + Vector3.forward * offset, sizeclimb);
+        Gizmos.DrawWireCube(transform.position + offsetpos3 + transform.forward * offset, sizeclimb);
     }
 }
