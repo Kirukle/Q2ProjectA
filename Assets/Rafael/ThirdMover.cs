@@ -21,10 +21,19 @@ public class ThirdMover : MonoBehaviour
     public float DirectionHorizon;
     public float DirectionVertical;
 
+    public int rotationnew = 180;
+
+    
+
+    public float rotationspeed = 4.0f;
+
     // Start is called before the first frame update
     void Start()
     {
         Controller.GetComponent<CharacterController>();
+
+        //from.rotation = transform.rotation;
+        //to.rotation = rotationnew;
     }
 
     // Update is called once per frame
@@ -50,8 +59,9 @@ public class ThirdMover : MonoBehaviour
 
             if (Movement != Vector3.zero)
             {
-                transform.forward = Movement;
+                transform.forward = Vector3.Slerp(transform.forward, Movement, rotationspeed * Time.deltaTime); 
 
+                //Quaternion.Slerp(transform.rotation, Movement, rotationspeed);
             }
             Controller.Move(Movement);
 
