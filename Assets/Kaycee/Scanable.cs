@@ -6,7 +6,8 @@ public class Scanable : MonoBehaviour
 {
     public bool activated, important, readObj, walkObj, runObj, jumpObj, climbObj;
     public GameObject textPrefab, player, spawnedText;
-    public float scanTime;
+   
+    public float scanTime, destroyTime;
     public string TextName;
     public Transform playerLoc;
 
@@ -16,7 +17,9 @@ public class Scanable : MonoBehaviour
         if (activated == true)
         {
             Instantiate(textPrefab).GetComponent<TMPro.TMP_Text>().SetText(TextName);
+            
         }
+      
         if(important == true)
         {
             if(readObj == true)
