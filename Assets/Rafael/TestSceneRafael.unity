@@ -1119,7 +1119,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 291285579862748761, guid: 70ecec75d801fb74e845034b4ebfd5cb, type: 3}
       propertyPath: sizeclimb.z
-      value: 1
+      value: 0.09
       objectReference: {fileID: 0}
     - target: {fileID: 291285579862748761, guid: 70ecec75d801fb74e845034b4ebfd5cb, type: 3}
       propertyPath: offsetpos3.y
@@ -1127,7 +1127,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 291285579862748761, guid: 70ecec75d801fb74e845034b4ebfd5cb, type: 3}
       propertyPath: offsetpos3.z
-      value: -0.72
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 291285579862748761, guid: 70ecec75d801fb74e845034b4ebfd5cb, type: 3}
       propertyPath: ClimbWall.m_Bits
