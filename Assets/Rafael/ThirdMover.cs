@@ -18,7 +18,8 @@ public class ThirdMover : MonoBehaviour
 
     public bool CanSprint;
 
-   
+    public float DirectionHorizon;
+    public float DirectionVertical;
 
     // Start is called before the first frame update
     void Start()
@@ -41,7 +42,8 @@ public class ThirdMover : MonoBehaviour
             float Horizontal = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
             float Vertical = Input.GetAxis("Vertical") * speed * Time.deltaTime;
 
-
+            DirectionHorizon = Horizontal;
+            DirectionVertical = Vertical;
             Vector3 Movement = Cam.transform.right * Horizontal + Cam.transform.forward * Vertical;
 
             Movement.y = 0f;
