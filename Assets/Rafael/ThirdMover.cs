@@ -48,6 +48,8 @@ public class ThirdMover : MonoBehaviour
 
             Controller.Move(Movement);
 
+            
+
             //if (Movement.magnitude != 0f)
             //{
             //    transform.Rotate(Vector3.up * Input.GetAxis("Mouse X") * Cam.GetComponent<ThirdPerson>().sensitivity * Time.deltaTime);
