@@ -55,15 +55,8 @@ public class Jumpy : MonoBehaviour
 
         Vector3 movementDirection = new Vector3(player.GetComponent<ThirdMover>().DirectionHorizon, 0, player.GetComponent<ThirdMover>().DirectionVertical);
 
-        movementDirection.Normalize();
+       
 
-        transform.Translate(movementDirection * Speed * Time.deltaTime, Space.World);
-
-        if(movementDirection != Vector3.zero)
-        {
-            transform.forward = movementDirection;
-
-        }
 
         //float horizontal = Input.GetAxis("Horizontal") * Speed;
         //float vertical = Input.GetAxis("Vertical") * Speed;

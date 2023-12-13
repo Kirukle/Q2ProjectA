@@ -48,6 +48,11 @@ public class ThirdMover : MonoBehaviour
 
             Movement.y = 0f;
 
+            if (Movement != Vector3.zero)
+            {
+                transform.forward = Movement;
+
+            }
             Controller.Move(Movement);
 
             
