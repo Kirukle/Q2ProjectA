@@ -118,13 +118,20 @@ public class Jumpy : MonoBehaviour
             velocity.y = Climb.Evaluate(climbTime);
 
         }
-        else if (Input.GetKeyUp(KeyCode.W) || Climbable == false)
+        else if (Input.GetKeyUp(KeyCode.W) || Climbable == false && Grounded)
         {
 
             climbTime = 0;
+            
 
         }
 
+        if (velocity.y >= 20f )
+        {
+            velocity.y = 20f;
+
+
+        }
     }
 
     private void OnDrawGizmos()
