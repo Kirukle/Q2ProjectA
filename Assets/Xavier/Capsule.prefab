@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -136,6 +136,10 @@ MonoBehaviour:
   CanMove: 1
   Cam: {fileID: 0}
   CanSprint: 1
+  DirectionHorizon: 0
+  DirectionVertical: 0
+  rotationnew: 180
+  rotationspeed: 4
 --- !u!114 &291285579862748761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,11 +152,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d686840d39f23654a83e77160788e29d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Direction: {x: 0, y: 0, z: 0}
   characterController: {fileID: 291285579862748739}
   Speed: 2
   jump: 10
   Gravity: -20
   canJump: 1
+  player: {fileID: 0}
   Test:
     serializedVersion: 2
     m_Curve:
@@ -178,9 +184,25 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   jumpTime: 0
+  Climb:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  climbTime: 0
   size: {x: 0.7, y: 0.3, z: 0.7}
   offset: 0.85
   m_MaxDistance: 0.85
+  offsetpos1: {x: 0, y: 0, z: 0}
+  offsetpos2: {x: 0, y: 0, z: 0}
+  offsetpos3: {x: 0, y: 0, z: 0}
+  sizeclimb: {x: 0, y: 0, z: 0}
+  climb_MaxDistance: 0.09
+  ClimbWall:
+    serializedVersion: 2
+    m_Bits: 0
+  CanClimb: 0
 --- !u!114 &291285579862748762
 MonoBehaviour:
   m_ObjectHideFlags: 0
