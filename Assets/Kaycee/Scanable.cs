@@ -41,6 +41,7 @@ public class Scanable : MonoBehaviour
             if(climbObj == true)
             {
 
+
             }
         }
     }
