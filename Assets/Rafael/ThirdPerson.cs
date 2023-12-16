@@ -20,6 +20,10 @@ public class ThirdPerson : MonoBehaviour
     private float currentY = 0.0f;
     public float sensitivity = 40.0f;
 
+    public float speed = 0f;
+    Vector3 badDistance;
+    Vector3 goodDistance;
+
     
 
 
@@ -37,6 +41,52 @@ public class ThirdPerson : MonoBehaviour
         Cursor.visible = false;
 
         
+    }
+
+    public void FixedUpdate()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+       
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, 1000000000))
+        {
+            //    Debug.Log(hit.collider.gameObject);
+            //if(hit.transform.gameObject.tag == "Enemy")
+            //{
+            //    GameObject.Find("SillyMan").GetComponent<UnityPatrol>().enabled = false;
+            //    GameObject.Find("SillyMan").GetComponent<Followplayer>().enabled = true;
+
+            //}
+            //Debug.DrawLine(ray.origin, hit.point);
+            
+
+            if (hit.transform.gameObject.tag == "Player")
+            {
+
+
+                Debug.Log("Player is seen");
+                //return;
+            }
+            else
+            {
+
+                speed += Time.deltaTime;
+                Camera.main.transform.position = Vector3.Lerp(badDistance, goodDistance, speed);
+
+            }
+                
+
+
+
+
+
+        }
+
+
+
+
     }
 
     // Update is called once per frame

@@ -33,8 +33,8 @@ public class RaycastStuff : MonoBehaviour
 
             //}
             //Debug.DrawLine(ray.origin, hit.point);
-            if (hit.transform.gameObject.tag == "Enemy")
-                EventTest.Invoke();
+            if (hit.transform.gameObject.tag == "Player")
+                Debug.Log("Player is seen");
 
 
         }
