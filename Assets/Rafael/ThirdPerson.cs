@@ -24,6 +24,8 @@ public class ThirdPerson : MonoBehaviour
     Vector3 badDistance;
     Vector3 goodDistance;
 
+    public GameObject WallObject;
+
     
 
 
@@ -50,7 +52,7 @@ public class ThirdPerson : MonoBehaviour
        
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, 1000000000))
+        if (Physics.Raycast(ray, out hit, 10))
         {
             //    Debug.Log(hit.collider.gameObject);
             //if(hit.transform.gameObject.tag == "Enemy")
@@ -62,20 +64,21 @@ public class ThirdPerson : MonoBehaviour
             //Debug.DrawLine(ray.origin, hit.point);
             
 
-            if (hit.transform.gameObject.tag == "Player")
+            if (hit.transform.gameObject.tag == "BlockWall")
             {
 
+                WallObject = hit.transform.gameObject;
 
-                Debug.Log("Player is seen");
-                //return;
+                WallObject.GetComponent<MeshRenderer>().enabled = false;
+
             }
             else
             {
 
-                speed += Time.deltaTime;
-                Camera.main.transform.position = Vector3.Lerp(badDistance, goodDistance, speed);
+                WallObject.GetComponent<MeshRenderer>().enabled = true;
 
-            }
+            }//Now all I gotta do is figure out how to ignore colliders that are not the tag I want it to affect
+            
                 
 
 

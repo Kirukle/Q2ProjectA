@@ -37,7 +37,7 @@ public class RaycastStuff : MonoBehaviour
                 Debug.Log("Player is seen");
 
 
-        }
+        } 
 
        // if (Physics.Raycast(ray, out hit, 1000))
           //  print("Object found, distance is" + hit.distance);
