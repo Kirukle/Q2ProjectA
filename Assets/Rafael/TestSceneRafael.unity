@@ -604,12 +604,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 780654039069918716, guid: 50cec71c36968734a8e9b250c694ca46, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 780654039069918716, guid: 50cec71c36968734a8e9b250c694ca46, type: 3}
       propertyPath: m_TagString
       value: BlockWall
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 50cec71c36968734a8e9b250c694ca46, type: 3}
       propertyPath: m_Name
       value: GameLevelFinished
+      objectReference: {fileID: 0}
+    - target: {fileID: 7567795136098443923, guid: 50cec71c36968734a8e9b250c694ca46, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7567795136098443923, guid: 50cec71c36968734a8e9b250c694ca46, type: 3}
       propertyPath: m_TagString

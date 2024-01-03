@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Rafael/TestSceneRafael.unity
+    guid: 459cd4e2480aa904d90af726fd6421b7
   m_configObjects: {}

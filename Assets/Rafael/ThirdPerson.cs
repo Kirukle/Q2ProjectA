@@ -49,10 +49,10 @@ public class ThirdPerson : MonoBehaviour
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-       
+        LayerMask mask = LayerMask.GetMask("BlockWall");
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, 10))
+        if (Physics.Raycast(ray, out hit, 10, mask))
         {
             //    Debug.Log(hit.collider.gameObject);
             //if(hit.transform.gameObject.tag == "Enemy")
@@ -62,28 +62,29 @@ public class ThirdPerson : MonoBehaviour
 
             //}
             //Debug.DrawLine(ray.origin, hit.point);
-            
 
-            if (hit.transform.gameObject.tag == "BlockWall")
-            {
 
-                WallObject = hit.transform.gameObject;
+            WallObject = hit.transform.gameObject;
 
-                WallObject.GetComponent<MeshRenderer>().enabled = false;
+            WallObject.GetComponent<MeshRenderer>().enabled = false;
+            //if (hit.transform.gameObject.tag == "BlockWall")
+            //{
 
-            }
-            else
-            {
 
-                WallObject.GetComponent<MeshRenderer>().enabled = true;
-
-            }//Now all I gotta do is figure out how to ignore colliders that are not the tag I want it to affect
-            
-                
+            //}
+            //Now all I gotta do is figure out how to ignore colliders that are not the tag I want it to affect
 
 
 
 
+
+
+
+        }
+        else
+        {
+
+            WallObject.GetComponent<MeshRenderer>().enabled = true;
 
         }
 
