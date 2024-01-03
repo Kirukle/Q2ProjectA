@@ -52,7 +52,7 @@ public class ThirdPerson : MonoBehaviour
         LayerMask mask = LayerMask.GetMask("BlockWall");
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, 10, mask))
+        if (Physics.Raycast(ray, out hit, 10,mask))
         {
             //    Debug.Log(hit.collider.gameObject);
             //if(hit.transform.gameObject.tag == "Enemy")
@@ -63,15 +63,17 @@ public class ThirdPerson : MonoBehaviour
             //}
             //Debug.DrawLine(ray.origin, hit.point);
 
-
             WallObject = hit.transform.gameObject;
 
             WallObject.GetComponent<MeshRenderer>().enabled = false;
+
             //if (hit.transform.gameObject.tag == "BlockWall")
             //{
 
 
-            //}
+            //} 
+
+
             //Now all I gotta do is figure out how to ignore colliders that are not the tag I want it to affect
 
 
@@ -81,7 +83,7 @@ public class ThirdPerson : MonoBehaviour
 
 
         }
-        else
+        else /*if(Physics.Raycast(ray, out hit, 10, mask) && WallObject)*/
         {
 
             WallObject.GetComponent<MeshRenderer>().enabled = true;
