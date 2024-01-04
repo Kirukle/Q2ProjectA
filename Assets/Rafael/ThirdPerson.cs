@@ -25,11 +25,16 @@ public class ThirdPerson : MonoBehaviour
     Vector3 goodDistance;
 
     public GameObject WallObject;
+    public GameObject PrevObject;
+    public GameObject NextObject;
 
     
 
 
    
+    
+
+
 
     RaycastHit hit;
 
@@ -41,8 +46,8 @@ public class ThirdPerson : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-
         
+
     }
 
     public void FixedUpdate()
@@ -52,8 +57,13 @@ public class ThirdPerson : MonoBehaviour
         LayerMask mask = LayerMask.GetMask("BlockWall");
         RaycastHit hit;
 
+       
+        
+
         if (Physics.Raycast(ray, out hit, 10,mask))
         {
+           
+
             //    Debug.Log(hit.collider.gameObject);
             //if(hit.transform.gameObject.tag == "Enemy")
             //{
@@ -63,9 +73,28 @@ public class ThirdPerson : MonoBehaviour
             //}
             //Debug.DrawLine(ray.origin, hit.point);
 
-            WallObject = hit.transform.gameObject;
+           NextObject = hit.transform.gameObject;
 
-            WallObject.GetComponent<MeshRenderer>().enabled = false;
+            if(NextObject != WallObject)
+            {
+                PrevObject = WallObject;
+                WallObject = NextObject;
+
+
+            }
+
+           
+            
+            PrevObject.GetComponent<MeshRenderer>().enabled = true;
+
+            Color nocolor = WallObject.GetComponent<MeshRenderer>().material.GetColor("_Color");
+            nocolor.a = 0;
+
+            Color color = PrevObject.GetComponent<MeshRenderer>().material.GetColor("_Color");
+            color.a = 1;
+
+            WallObject.GetComponent<MeshRenderer>().material.SetColor("_Color", nocolor);
+            PrevObject.GetComponent<MeshRenderer>().material.SetColor("_Color", color);
 
             //if (hit.transform.gameObject.tag == "BlockWall")
             //{
@@ -82,13 +111,20 @@ public class ThirdPerson : MonoBehaviour
 
 
 
+
+
         }
-        else /*if(Physics.Raycast(ray, out hit, 10, mask) && WallObject)*/
+        else
         {
+            Color keepcolor = NextObject.GetComponent<MeshRenderer>().material.GetColor("_Color");
 
-            WallObject.GetComponent<MeshRenderer>().enabled = true;
+           keepcolor.a = 1;
+
+            NextObject.GetComponent<MeshRenderer>().material.SetColor("_Color", keepcolor);
+
 
         }
+       
 
 
 

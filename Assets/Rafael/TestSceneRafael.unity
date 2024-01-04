@@ -591,6 +591,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6868569826074405010, guid: 50cec71c36968734a8e9b250c694ca46, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d5e28b82da6497044a109afacad39332, type: 2}
     - target: {fileID: -6399982720073777623, guid: 50cec71c36968734a8e9b250c694ca46, type: 3}
       propertyPath: m_TagString
       value: BlockWall
@@ -627,6 +631,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9114128533727558408, guid: 50cec71c36968734a8e9b250c694ca46, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d5e28b82da6497044a109afacad39332, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50cec71c36968734a8e9b250c694ca46, type: 3}
 --- !u!1 &545359265 stripped
@@ -982,7 +990,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 804609848}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.106735, y: 11.837693, z: -14.2908945}
+  m_LocalPosition: {x: -17.106735, y: 8.12, z: -4.68}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2023,6 +2031,14 @@ PrefabInstance:
       propertyPath: distance
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 3876071290547603078, guid: 3e0899a7254856e45b80e7b15fc9ea20, type: 3}
+      propertyPath: NextObject
+      value: 
+      objectReference: {fileID: 1514315246}
+    - target: {fileID: 3876071290547603078, guid: 3e0899a7254856e45b80e7b15fc9ea20, type: 3}
+      propertyPath: PrevObject
+      value: 
+      objectReference: {fileID: 560207953}
     - target: {fileID: 3876071290547603078, guid: 3e0899a7254856e45b80e7b15fc9ea20, type: 3}
       propertyPath: WallObject
       value: 
