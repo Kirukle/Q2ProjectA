@@ -5,7 +5,6 @@ using Cinemachine;
 
 public class ThirdPerson : MonoBehaviour
 {
-
     private const float YMin = -4.46f;
     private const float YMax = 50.0f;
 
@@ -13,6 +12,7 @@ public class ThirdPerson : MonoBehaviour
 
     public Transform Player;
 
+    public Material invisWall;
    
 
     public float distance = 10.0f;
@@ -59,7 +59,7 @@ public class ThirdPerson : MonoBehaviour
 
        
         
-
+        //raycast which detects if wall that interrupts raycast looking at player has the BlockWall Layer
         if (Physics.Raycast(ray, out hit, 10,mask))
         {
            
@@ -75,6 +75,7 @@ public class ThirdPerson : MonoBehaviour
 
            NextObject = hit.transform.gameObject;
 
+            //Stores the object that was last hit by the raycast
             if(NextObject != WallObject)
             {
                 PrevObject = WallObject;
@@ -85,16 +86,16 @@ public class ThirdPerson : MonoBehaviour
 
            
             
-            PrevObject.GetComponent<MeshRenderer>().enabled = true;
+           
 
-            Color nocolor = WallObject.GetComponent<MeshRenderer>().material.GetColor("_Color");
-            nocolor.a = 0;
+            //Color nocolor = WallObject.GetComponent<MeshRenderer>().material.GetColor("_Color");
+            //nocolor.a = 0;
 
-            Color color = PrevObject.GetComponent<MeshRenderer>().material.GetColor("_Color");
-            color.a = 1;
-
-            WallObject.GetComponent<MeshRenderer>().material.SetColor("_Color", nocolor);
-            PrevObject.GetComponent<MeshRenderer>().material.SetColor("_Color", color);
+            //Color color = PrevObject.GetComponent<MeshRenderer>().material.GetColor("_Color");
+            //color.a = 1;
+            //turns current wall invisible, makes previous wall that was invisible visible
+            WallObject.GetComponent<MeshRenderer>().enabled = false;   /*material.SetColor("_Color", nocolor);*/
+            PrevObject.GetComponent<MeshRenderer>().enabled = true;       /*material.SetColor("_Color", color);*/
 
             //if (hit.transform.gameObject.tag == "BlockWall")
             //{
@@ -116,11 +117,11 @@ public class ThirdPerson : MonoBehaviour
         }
         else
         {
-            Color keepcolor = NextObject.GetComponent<MeshRenderer>().material.GetColor("_Color");
+            // Color keepcolor = NextObject.GetComponent<MeshRenderer>().material.GetColor("_Color");
 
-           keepcolor.a = 1;
-
-            NextObject.GetComponent<MeshRenderer>().material.SetColor("_Color", keepcolor);
+            //keepcolor.a = 1;
+            //Makes sure the wall turns visible when going to another wall or back to looking at player
+            NextObject.GetComponent<MeshRenderer>().enabled = true;
 
 
         }
