@@ -10,14 +10,17 @@ public class Scanable : MonoBehaviour
     public float scanTime, destroyTime;
     public string TextName;
     public Transform playerLoc;
+    public Transform worldCanvas;
 
     // Update is called once per frame
     void Update()
     {
         if (activated == true)
         {
-            Instantiate(textPrefab).GetComponent<TMPro.TMP_Text>().SetText(TextName);
-            
+            spawnedText = Instantiate(textPrefab, worldCanvas);
+            spawnedText.GetComponent<TMPro.TMP_Text>().SetText(TextName);
+            spawnedText.GetComponent<RectTransform>().anchoredPosition3D = this.transform.position;
+            activated = false;
         }
       
         if(important == true)
