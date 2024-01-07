@@ -63,7 +63,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 50000
+      m_SerializableObject: 900000
     min: -Infinity
     max: Infinity
     enumValues: []
@@ -301,7 +301,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.AABox, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"center":{"x":13.767112731933594,"y":15.390716552734375,"z":-1.9949188232421876},"size":{"x":165.08912658691407,"y":31.781436920166017,"z":150.15029907226563}}'
+      m_SerializableObject: '{"center":{"x":-35.03662109375,"y":101.10858154296875,"z":22.004302978515626},"size":{"x":2225.8515625,"y":620.6798095703125,"z":1113.40380859375}}'
     m_Space: 0
   m_Property:
     name: bounds
@@ -604,7 +604,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614583}
   - {fileID: 8926484042661614585}
   dataType: 0
-  capacity: 25000
+  capacity: 500000
   stripCapacity: 16
   particlePerStripCount: 16
   m_Space: 0
@@ -1272,7 +1272,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 50000
+      m_SerializableObject: 900000
     m_Space: 2147483647
   m_Property:
     name: o
@@ -1699,7 +1699,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.AABox, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"center":{"x":4.545310974121094,"y":8.535109519958496,"z":-4.193060874938965},"size":{"x":140.8993377685547,"y":21.749624252319337,"z":130.1156463623047}}'
+      m_SerializableObject: '{"center":{"x":-84.5537109375,"y":8.535109519958496,"z":-5.44793701171875},"size":{"x":2018.553466796875,"y":21.749624252319337,"z":973.6534423828125}}'
     m_Space: 0
   m_Property:
     name: Box
