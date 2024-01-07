@@ -797,6 +797,7 @@ MonoBehaviour:
   destroyTime: 1
   TextName: Test
   playerLoc: {fileID: 2088288005}
+  worldCanvas: {fileID: 0}
 --- !u!65 &583713511
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1354,23 +1355,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 291285579862748738, guid: 70ecec75d801fb74e845034b4ebfd5cb, type: 3}
   m_PrefabInstance: {fileID: 2088287996}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1038293955
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1038293954}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77906f7eec2ecb441b56f50502419dce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ScanRadius: 50
-  CanBeScanned:
-    serializedVersion: 2
-    m_Bits: 256
-  WaitTime: 1
 --- !u!1 &1075446604 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5902971270548390587, guid: 50cec71c36968734a8e9b250c694ca46, type: 3}
