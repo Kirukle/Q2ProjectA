@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Cinemachine;
+
 
 public class ThirdPerson : MonoBehaviour
 {
@@ -12,7 +12,7 @@ public class ThirdPerson : MonoBehaviour
 
     public Transform Player;
 
-    public Material invisWall;
+    
    
 
     public float distance = 10.0f;
@@ -28,17 +28,18 @@ public class ThirdPerson : MonoBehaviour
     public GameObject PrevObject;
     public GameObject NextObject;
 
-    
-
-
-   
-    
-
-
-
+     
     RaycastHit hit;
 
-   
+
+
+
+
+
+
+
+
+
 
 
     // Start is called before the first frame update
@@ -52,13 +53,12 @@ public class ThirdPerson : MonoBehaviour
 
     public void FixedUpdate()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         LayerMask mask = LayerMask.GetMask("BlockWall");
         RaycastHit hit;
 
-       
-        
+
         //raycast which detects if wall that interrupts raycast looking at player has the BlockWall Layer
         if (Physics.Raycast(ray, out hit, 10,mask))
         {
@@ -72,6 +72,8 @@ public class ThirdPerson : MonoBehaviour
 
             //}
             //Debug.DrawLine(ray.origin, hit.point);
+
+           
 
            NextObject = hit.transform.gameObject;
 
