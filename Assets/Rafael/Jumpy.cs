@@ -21,6 +21,9 @@ public class Jumpy : MonoBehaviour
     public AnimationCurve Climb;
     public float climbTime;
 
+    public GameObject spawnpoint;
+    
+
     [Header("Boxcast Settings")]
     public Vector3 size;
     public float offset;
@@ -32,14 +35,18 @@ public class Jumpy : MonoBehaviour
     public float climb_MaxDistance = 0.09f;
 
 
+
     public LayerMask ClimbWall;
+
+    
     public bool CanClimb;
     public bool Grounded => Physics.BoxCast(transform.position + offsetpos1, size / 2, Vector3.down * offset, Quaternion.identity, m_MaxDistance);
     public bool Ceiling => Physics.BoxCast(transform.position + offsetpos2, size / 2, Vector3.up * offset, Quaternion.identity, m_MaxDistance);
 
     public bool Climbable => Physics.BoxCast(transform.position + offsetpos3, sizeclimb / 2, transform.forward * offset, Quaternion.identity, climb_MaxDistance, ClimbWall);
 
-
+    
+    public float CountDownTimer;
 
     // Start is called before the first frame update
     void Start()
@@ -47,15 +54,15 @@ public class Jumpy : MonoBehaviour
        
     }
 
-    
 
+    
     // Update is called once per frame
     void Update()
     {
 
         Vector3 movementDirection = new Vector3(player.GetComponent<ThirdMover>().DirectionHorizon, 0, player.GetComponent<ThirdMover>().DirectionVertical);
 
-       
+        CountDownTimer -= Time.deltaTime;
 
 
         //float horizontal = Input.GetAxis("Horizontal") * Speed;
@@ -132,6 +139,29 @@ public class Jumpy : MonoBehaviour
 
 
         }
+
+       
+        if(transform.position.y >= -0.6f)
+        {
+
+            CountDownTimer = 1.0f;
+
+        }
+
+        if(CountDownTimer <= 0.5f)
+        {
+            characterController.enabled = false;
+            characterController.transform.position = spawnpoint.transform.position;
+            characterController.enabled = true;
+
+        }
+
+
+
+       
+
+
+
     }
 
     private void OnDrawGizmos()
