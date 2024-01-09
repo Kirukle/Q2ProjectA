@@ -23,7 +23,7 @@ public class ThirdMover : MonoBehaviour
 
     public int rotationnew = 180;
 
-    
+    public GameObject Bobot;
 
     public float rotationspeed = 4.0f;
 
@@ -33,7 +33,7 @@ public class ThirdMover : MonoBehaviour
     void Start()
     {
         Controller.GetComponent<CharacterController>();
-        PlayerAnim = GetComponent<Animator>();
+        PlayerAnim = Bobot.GetComponent<Animator>();
 
         //from.rotation = transform.rotation;
         //to.rotation = rotationnew;
@@ -64,6 +64,7 @@ public class ThirdMover : MonoBehaviour
             {
                 transform.forward = Vector3.Slerp(transform.forward, Movement, rotationspeed * Time.deltaTime);
                 PlayerAnim.SetBool("Walking", true);
+                PlayerAnim.SetBool("Stopped", false);
                 //Quaternion.Slerp(transform.rotation, Movement, rotationspeed);
             }
             else

@@ -20,10 +20,11 @@ public class Jumpy : MonoBehaviour
     public float jumpTime;
     public AnimationCurve Climb;
     public float climbTime;
-
+    public GameObject Bobot;
     public GameObject spawnpoint;
-    
-
+    private Animator PlayerAnim;
+    public bool falling;
+    public bool landed;
     [Header("Boxcast Settings")]
     public Vector3 size;
     public float offset;
@@ -51,7 +52,7 @@ public class Jumpy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+        PlayerAnim = Bobot.GetComponent<Animator>();
     }
 
 
@@ -158,8 +159,47 @@ public class Jumpy : MonoBehaviour
 
 
 
-       
+        if (velocity.y > 0f && Grounded == false)
+        {
+            PlayerAnim.SetBool("Jumping", true);
+            PlayerAnim.SetBool("Stopped", false);
+            PlayerAnim.SetBool("Walking", false);
+            PlayerAnim.SetBool("Running", false);
+            PlayerAnim.SetBool("Climbing", false);
+        }
 
+        if (velocity.y < 0f)
+        {
+            PlayerAnim.SetBool("Jumping", false);
+            PlayerAnim.SetBool("Falling", true);
+            falling = true;
+
+            PlayerAnim.SetBool("Stopped", false);
+
+        }
+        if (velocity.y > 0f && Climbable)
+        {
+            PlayerAnim.SetBool("Jumping", false);
+            PlayerAnim.SetBool("Stopped", false);
+            PlayerAnim.SetBool("Climbing", true);
+            PlayerAnim.SetBool("Walking", false);
+            PlayerAnim.SetBool("Running", false);
+        }
+
+        if (Grounded && falling == true)
+        {
+            PlayerAnim.SetBool("Jumping", false);
+            PlayerAnim.SetBool("Falling", false);
+            falling = false;
+            PlayerAnim.SetBool("Stopped", false);
+            PlayerAnim.SetBool("Landed", true);
+        }
+        else
+        {
+            PlayerAnim.SetBool("Landed", false);
+
+        }
+        
 
 
     }

@@ -127,6 +127,7 @@ MonoBehaviour:
   DirectionHorizon: 0
   DirectionVertical: 0
   rotationnew: 180
+  Bobot: {fileID: 5650864809527294641}
   rotationspeed: 10
 --- !u!114 &291285579862748761
 MonoBehaviour:
@@ -143,7 +144,7 @@ MonoBehaviour:
   Direction: {x: 0, y: 0, z: 0}
   characterController: {fileID: 291285579862748739}
   Speed: 2
-  jump: 10
+  jump: 20
   Gravity: -20
   canJump: 1
   player: {fileID: 291285579862748738}
@@ -197,7 +198,10 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   climbTime: 0
+  Bobot: {fileID: 5650864809527294641}
   spawnpoint: {fileID: 0}
+  falling: 0
+  landed: 0
   size: {x: 1, y: 0.3, z: 1}
   offset: 0.85
   m_MaxDistance: 0.85
