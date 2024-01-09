@@ -3003,7 +3003,7 @@ MonoBehaviour:
   lookAt: {fileID: 2088288005}
   Player: {fileID: 2088288005}
   distance: 10
-  sensitivity: 4000
+  sensitivity: 400
   speed: 0
   WallObject: {fileID: 875990845}
   PrevObject: {fileID: 804609848}
@@ -3125,6 +3125,51 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -9097174163583428135, guid: 50cec71c36968734a8e9b250c694ca46, type: 3}
+--- !u!1 &868067781
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 868067783}
+  - component: {fileID: 868067782}
+  m_Layer: 0
+  m_Name: GamePauser
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &868067782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868067781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc200668b3122204ea9926e08cd93ba2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerPause: {fileID: 1038293954}
+  Paused: 0
+--- !u!4 &868067783
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868067781}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -147.5193, y: 68.1438, z: -121.73955}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &874818331 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2596957926113402938, guid: 50cec71c36968734a8e9b250c694ca46, type: 3}

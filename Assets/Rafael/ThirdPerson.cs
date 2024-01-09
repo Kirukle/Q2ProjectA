@@ -18,7 +18,7 @@ public class ThirdPerson : MonoBehaviour
     public float distance = 10.0f;
     private float currentX = 0.0f;
     private float currentY = 0.0f;
-    public float sensitivity = 40.0f;
+    public float sensitivity = 400.0f;
 
     public float speed = 0f;
     Vector3 badDistance;
@@ -41,9 +41,8 @@ public class ThirdPerson : MonoBehaviour
 
 
 
-
-    // Start is called before the first frame update
-    void Start()
+// Start is called before the first frame update
+void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -58,6 +57,13 @@ public class ThirdPerson : MonoBehaviour
         LayerMask mask = LayerMask.GetMask("BlockWall");
         RaycastHit hit;
 
+
+        if (Input.GetKey(KeyCode.Equals))
+        {
+            sensitivity = 4000.0f;
+
+
+        }
 
         //raycast which detects if wall that interrupts raycast looking at player has the BlockWall Layer
         if (Physics.Raycast(ray, out hit, 10,mask))
@@ -147,10 +153,10 @@ public class ThirdPerson : MonoBehaviour
         transform.position = lookAt.position + rotation * Direction;
         transform.LookAt(lookAt.position);
 
-        
-
       
-       
+
+
+
     }
 
     
