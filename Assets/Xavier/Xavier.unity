@@ -260,7 +260,7 @@ MonoBehaviour:
   lookAt: {fileID: 1942358779}
   Player: {fileID: 1942358779}
   distance: 10
-  sensitivity: 40000
+  sensitivity: 4000
   speed: 0
   WallObject: {fileID: 2134842135}
   PrevObject: {fileID: 1031535752}
@@ -396,7 +396,7 @@ VisualEffect:
   m_PropertySheet:
     m_Float:
       m_Array:
-      - m_Value: 800
+      - m_Value: 99000
         m_Name: FogAmount
         m_Overridden: 0
     m_Vector2f:
