@@ -320,7 +320,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &713809042
 GameObject:
@@ -396,7 +396,7 @@ VisualEffect:
   m_PropertySheet:
     m_Float:
       m_Array:
-      - m_Value: 99000
+      - m_Value: 800000
         m_Name: FogAmount
         m_Overridden: 0
     m_Vector2f:
@@ -431,7 +431,7 @@ Transform:
   m_LocalScale: {x: 0.62561, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &846091143
 GameObject:
@@ -5644,6 +5644,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vfxRenderer: {fileID: 713809044}
+  rotationSpeed: 5
 --- !u!1 &2003737358
 GameObject:
   m_ObjectHideFlags: 0
