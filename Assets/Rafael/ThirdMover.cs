@@ -63,14 +63,24 @@ public class ThirdMover : MonoBehaviour
             if (Movement != Vector3.zero)
             {
                 transform.forward = Vector3.Slerp(transform.forward, Movement, rotationspeed * Time.deltaTime);
-                PlayerAnim.SetBool("Walking", true);
+                
                 PlayerAnim.SetBool("Stopped", false);
+                PlayerAnim.SetBool("Walking", true);
+                
+
+
+
+
+
                 //Quaternion.Slerp(transform.rotation, Movement, rotationspeed);
             }
             else
             {
-                PlayerAnim.SetBool("Walking", false);
+                
                 PlayerAnim.SetBool("Stopped", true);
+                PlayerAnim.SetBool("Walking", false);
+                PlayerAnim.SetBool("Running", false);
+                PlayerAnim.SetBool("Climbing", false);
 
 
             }
@@ -96,13 +106,14 @@ public class ThirdMover : MonoBehaviour
 
                 speed = sprint;
                 PlayerAnim.SetBool("Running", true);
-
+               
             }
             else
             {
 
                 speed = 10.0f;
                 PlayerAnim.SetBool("Running", false);
+                
             }
 
         }

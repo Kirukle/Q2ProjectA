@@ -148,6 +148,9 @@ MonoBehaviour:
   Gravity: -20
   canJump: 1
   player: {fileID: 291285579862748738}
+  nextY: 0
+  currentY: 0
+  prevY: 0
   Test:
     serializedVersion: 2
     m_Curve:
@@ -161,8 +164,8 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.0013585985
-      value: 11.421656
+      time: 0.0023046434
+      value: 36.081432
       inSlope: -141.22845
       outSlope: -141.22845
       tangentMode: 0
