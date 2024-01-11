@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ThirdPerson : MonoBehaviour
 {
-    private const float YMin = -4.46f;
+    private const float YMin = -50.0f;
     private const float YMax = 50.0f;
 
     public Transform lookAt;
