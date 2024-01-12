@@ -148,9 +148,6 @@ MonoBehaviour:
   Gravity: -20
   canJump: 1
   player: {fileID: 291285579862748738}
-  nextY: 0
-  currentY: 0
-  prevY: 0
   Test:
     serializedVersion: 2
     m_Curve:
@@ -205,7 +202,7 @@ MonoBehaviour:
   spawnpoint: {fileID: 0}
   falling: 0
   landed: 0
-  size: {x: 1, y: 0.3, z: 1}
+  size: {x: 1.5, y: 0.3, z: 1.5}
   offset: 0.85
   m_MaxDistance: 0.85
   offsetpos1: {x: 0, y: -1.33, z: 0}

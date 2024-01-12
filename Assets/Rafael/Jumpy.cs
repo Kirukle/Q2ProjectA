@@ -55,6 +55,7 @@ public class Jumpy : MonoBehaviour
 
     
     public float CountDownTimer;
+    public float CoolDownTimer;
 
     // Start is called before the first frame update
     void Start()
@@ -72,7 +73,7 @@ public class Jumpy : MonoBehaviour
         Vector3 movementDirection = new Vector3(player.GetComponent<ThirdMover>().DirectionHorizon, 0, player.GetComponent<ThirdMover>().DirectionVertical);
 
         CountDownTimer -= Time.deltaTime;
-
+        CoolDownTimer += Time.deltaTime;
 
         //float horizontal = Input.GetAxis("Horizontal") * Speed;
         //float vertical = Input.GetAxis("Vertical") * Speed;
@@ -98,11 +99,11 @@ public class Jumpy : MonoBehaviour
 
 
         }
-        if (Input.GetButton("Jump") && Grounded)
+        if (Input.GetButton("Jump") && Grounded && canJump == true)
         {
             jumpTime += Time.deltaTime;
             velocity.y = Test.Evaluate(jumpTime);
-            
+            CoolDownTimer = 0f;
 
 
 
@@ -166,10 +167,10 @@ public class Jumpy : MonoBehaviour
 
         if (Input.GetButton("Jump") && currentY > prevY && Grounded == false)
        {
-            PlayerAnim.Play("Jupm");
-            
+            PlayerAnim.SetBool("Jumping", true);
+
             PlayerAnim.SetFloat("Ypos", 1f);
-            
+            CoolDownTimer = 0f;
 
         }
 
@@ -193,7 +194,9 @@ public class Jumpy : MonoBehaviour
         if (currentY < prevY && Grounded == false)
         {
             PlayerAnim.SetFloat("Ypos", -1f);
+            PlayerAnim.SetBool("Jumping", false);
             JumpEnd = true;
+            CoolDownTimer = 0f;
         }
        
         
@@ -213,11 +216,24 @@ public class Jumpy : MonoBehaviour
 
             JumpEnd = false;
 
-
+            
+            
 
         }
 
+        if (CoolDownTimer >= 0.3f)
+        {
+            canJump = true;
+
+        }
+        else
+        {
+            
+            canJump = false;
+        }
        
+
+
 
 
 
