@@ -16,9 +16,12 @@ public class Jumpy : MonoBehaviour
     public bool canJump;
     public GameObject player;
 
-    public float nextY;
-    public float currentY;
-    public float prevY;
+    bool JumpEnd;
+
+    float currentY;
+    float nextY;
+    float prevY;
+    
 
     public AnimationCurve Test;
     public float jumpTime;
@@ -148,23 +151,25 @@ public class Jumpy : MonoBehaviour
 
         }
 
+        
+
         nextY = transform.position.y;
+
+       
 
         if(nextY != currentY)
         {
-            prevY = currentY;
+          prevY = currentY;
             currentY = nextY;
 
         }
 
         if (Input.GetButton("Jump") && currentY > prevY && Grounded == false)
-        {
-            PlayerAnim.SetBool("Jumping", true);
-            PlayerAnim.SetBool("Stopped", false);
-            PlayerAnim.SetBool("Walking", false);
-            PlayerAnim.SetBool("Running", false);
-            PlayerAnim.SetBool("Climbing", false);
-
+       {
+            PlayerAnim.Play("Jupm");
+            
+            PlayerAnim.SetFloat("Ypos", 1f);
+            
 
         }
 
@@ -183,25 +188,24 @@ public class Jumpy : MonoBehaviour
 
         }
 
-
+        PlayerAnim.SetBool("JumpEnd", JumpEnd);
 
         if (currentY < prevY && Grounded == false)
         {
-            PlayerAnim.SetBool("Jumping", false);
-            PlayerAnim.SetBool("Stopped", false);
-            PlayerAnim.SetBool("Falling", true);
-            PlayerAnim.SetBool("Walking", false);
-            PlayerAnim.SetBool("Running", false);
-            PlayerAnim.SetBool("Climbing", false);
+            PlayerAnim.SetFloat("Ypos", -1f);
+            JumpEnd = true;
+        }
+       
+        if (currentY < prevY && Grounded == false && JumpEnd == false)
+        {
+            PlayerAnim.Play("FallGuys");
+            
 
         }
         if (currentY > prevY && Climbable == true)
         {
-            PlayerAnim.SetBool("Jumping", false);
-            PlayerAnim.SetBool("Stopped", false);
             PlayerAnim.SetBool("Climbing", true);
-            PlayerAnim.SetBool("Walking", false);
-            PlayerAnim.SetBool("Running", false);
+
         }
         else
         {
@@ -211,13 +215,14 @@ public class Jumpy : MonoBehaviour
 
         if ( Grounded == true)
         {
-            PlayerAnim.SetBool("Jumping", false);
-            PlayerAnim.SetBool("Falling", false);
-            PlayerAnim.SetBool("Stopped", true);
+
+            JumpEnd = false;
+
+
 
         }
 
-
+       
 
 
 

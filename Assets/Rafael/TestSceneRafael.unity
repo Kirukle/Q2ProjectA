@@ -6680,7 +6680,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: -5603568263708238521, guid: 50cec71c36968734a8e9b250c694ca46, type: 3}
   m_PrefabInstance: {fileID: 508166749}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &2036630514
+--- !u!65 &2036630511
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6691,8 +6691,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.031159177, y: 0.005110633, z: 0.20900103}
-  m_Center: {x: 3.469447e-18, y: 1.1641532e-10, z: 0.000000007450581}
+  m_Size: {x: 0.027757669, y: 0.0053207316, z: 0.19039392}
+  m_Center: {x: -0.00000461882, y: -0.000000036131173, z: -0.013137598}
 --- !u!1 &2057682341 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8578709097331664583, guid: 50cec71c36968734a8e9b250c694ca46, type: 3}
@@ -6778,6 +6778,14 @@ PrefabInstance:
       propertyPath: Cam
       value: 
       objectReference: {fileID: 835800502}
+    - target: {fileID: 291285579862748761, guid: 70ecec75d801fb74e845034b4ebfd5cb, type: 3}
+      propertyPath: size.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 291285579862748761, guid: 70ecec75d801fb74e845034b4ebfd5cb, type: 3}
+      propertyPath: size.z
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 291285579862748761, guid: 70ecec75d801fb74e845034b4ebfd5cb, type: 3}
       propertyPath: spawnpoint
       value: 
