@@ -144,7 +144,7 @@ public class Jumpy : MonoBehaviour
 
         }
 
-        if (velocity.y >= 20f )
+        if (velocity.y >= 20f)
         {
             velocity.y = 20f;
 
@@ -196,12 +196,7 @@ public class Jumpy : MonoBehaviour
             JumpEnd = true;
         }
        
-        if (currentY < prevY && Grounded == false && JumpEnd == false)
-        {
-            PlayerAnim.Play("FallGuys");
-            
-
-        }
+        
         if (currentY > prevY && Climbable == true)
         {
             PlayerAnim.SetBool("Climbing", true);
