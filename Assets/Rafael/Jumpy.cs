@@ -204,8 +204,8 @@ public class Jumpy : MonoBehaviour
         }
         else
         {
-
             PlayerAnim.SetBool("Climbing", false);
+
         }
 
         if ( Grounded == true)
