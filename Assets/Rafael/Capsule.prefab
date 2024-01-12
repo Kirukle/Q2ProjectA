@@ -215,6 +215,7 @@ MonoBehaviour:
     m_Bits: 64
   CanClimb: 1
   CountDownTimer: 0
+  CoolDownTimer: 0
 --- !u!114 &291285579862748762
 MonoBehaviour:
   m_ObjectHideFlags: 0
