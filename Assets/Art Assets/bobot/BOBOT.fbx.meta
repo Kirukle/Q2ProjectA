@@ -115,7 +115,7 @@ ModelImporter:
       takeName: Armature|jump1
       internalID: 0
       firstFrame: 0
-      lastFrame: 28
+      lastFrame: 22
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -143,7 +143,7 @@ ModelImporter:
       name: Armature|jump2
       takeName: Armature|jump2
       internalID: 0
-      firstFrame: 0
+      firstFrame: 3.2000003
       lastFrame: 17
       wrapMode: 0
       orientationOffsetY: 0

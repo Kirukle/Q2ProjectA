@@ -161,8 +161,8 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.0023046434
-      value: 36.081432
+      time: 0.0009923875
+      value: 15.575798
       inSlope: -141.22845
       outSlope: -141.22845
       tangentMode: 0
@@ -326,6 +326,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BOBOT
       objectReference: {fileID: 0}
+    - target: {fileID: 8153101253863224186, guid: 0f909e9fa7a5be746be2f6d546cf69ab, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 47444a3c64275434a8acaf3874cf71a5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f909e9fa7a5be746be2f6d546cf69ab, type: 3}
 --- !u!1 &5650864809527294641 stripped
