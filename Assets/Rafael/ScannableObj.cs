@@ -11,10 +11,12 @@ public class ScannableObj : ScriptableObj
     [SerializeField] bool canRun;
     [SerializeField] bool canJump;
     [SerializeField] bool hasScanned;
+
+    public int a = 0;
     public override void Apply(GameObject target)
     {
 
-
+        a++;
 
     }
 }
