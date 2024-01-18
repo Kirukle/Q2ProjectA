@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using System.Linq; // Add this line
+using System.Linq;
 
 public class ResolutionManager : MonoBehaviour
 {
@@ -42,7 +42,7 @@ public class ResolutionManager : MonoBehaviour
         List<string> options = new List<string>();
         for (int i = 0; i < filteredResolutions.Count; i++)
         {
-            string resolutionOption = filteredResolutions[i].width + "x" + filteredResolutions[i].height + " " + filteredResolutions[i].refreshRate + " Hz";
+            string resolutionOption = filteredResolutions[i].width + "x" + filteredResolutions[i].height;
             options.Add(resolutionOption);
             if (filteredResolutions[i].width == Screen.width && filteredResolutions[i].height == Screen.height)
             {
@@ -51,8 +51,12 @@ public class ResolutionManager : MonoBehaviour
         }
 
         resolutionDropdown.AddOptions(options);
-        resolutionDropdown.value = Mathf.Max(options.Count);
+        resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
+
+        resolutionDropdown.onValueChanged.AddListener(delegate {
+            SetResolution(resolutionDropdown.value);
+        });
     }
 
     public void SetResolution(int resolutionIndex)
