@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 291285579862748762}
   - component: {fileID: 2088287998}
   - component: {fileID: 1038293955}
+  - component: {fileID: 4015539825740812307}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Player
@@ -148,6 +149,7 @@ MonoBehaviour:
   Gravity: -20
   canJump: 1
   player: {fileID: 291285579862748738}
+  ClimbableWall: {fileID: 0}
   Test:
     serializedVersion: 2
     m_Curve:
@@ -202,10 +204,11 @@ MonoBehaviour:
   spawnpoint: {fileID: 0}
   falling: 0
   landed: 0
-  size: {x: 1.6, y: 0.3, z: 1.6}
+  sizelow: {x: 1.5, y: 0.5, z: 1.5}
+  sizehigh: {x: 1.5, y: 0.5, z: 1.5}
   offset: 0.85
   m_MaxDistance: 0.85
-  offsetpos1: {x: 0, y: -1.33, z: 0}
+  offsetpos1: {x: 0, y: -1.41, z: 0}
   offsetpos2: {x: 0, y: 1.53, z: 0}
   offsetpos3: {x: 0, y: 0, z: 0}
   sizeclimb: {x: 1, y: 0.17, z: 0.09}
@@ -216,6 +219,7 @@ MonoBehaviour:
   CanClimb: 1
   CountDownTimer: 0
   CoolDownTimer: 0
+  ClimbTimer: 0
 --- !u!114 &291285579862748762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,6 +263,18 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   WaitTime: 1
+--- !u!114 &4015539825740812307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291285579862748738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb30444aadc164147a8754a1a41328e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4803808406016886752
 PrefabInstance:
   m_ObjectHideFlags: 0

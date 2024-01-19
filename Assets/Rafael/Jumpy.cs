@@ -21,8 +21,8 @@ public class Jumpy : MonoBehaviour
     float currentY;
     float nextY;
     float prevY;
-    
 
+    public GameObject ClimbableWall;
     public AnimationCurve Test;
     public float jumpTime;
     public AnimationCurve Climb;
@@ -33,7 +33,8 @@ public class Jumpy : MonoBehaviour
     public bool falling;
     public bool landed;
     [Header("Boxcast Settings")]
-    public Vector3 size;
+    public Vector3 sizelow;
+    public Vector3 sizehigh;
     public float offset;
     public float m_MaxDistance = 0.09f;
     public Vector3 offsetpos1;
@@ -41,21 +42,22 @@ public class Jumpy : MonoBehaviour
     public Vector3 offsetpos3;
     public Vector3 sizeclimb;
     public float climb_MaxDistance = 0.09f;
-
+    RaycastHit hit;
 
 
     public LayerMask ClimbWall;
 
     
     public bool CanClimb;
-    public bool Grounded => Physics.BoxCast(transform.position + offsetpos1, size / 2, Vector3.down * offset, Quaternion.identity, m_MaxDistance);
-    public bool Ceiling => Physics.BoxCast(transform.position + offsetpos2, size / 2, Vector3.up * offset, Quaternion.identity, m_MaxDistance);
+    public bool Grounded => Physics.BoxCast(transform.position + offsetpos1, sizelow / 2, Vector3.down * offset, Quaternion.identity, m_MaxDistance);
+    public bool Ceiling => Physics.BoxCast(transform.position + offsetpos2, sizehigh / 2, Vector3.up * offset, Quaternion.identity, m_MaxDistance);
 
-    public bool Climbable => Physics.BoxCast(transform.position + offsetpos3, sizeclimb / 2, transform.forward * offset, Quaternion.identity, climb_MaxDistance, ClimbWall);
+    public bool Climbable => Physics.BoxCast(transform.position + offsetpos3, sizeclimb / 2, transform.forward * offset, out hit, Quaternion.identity, climb_MaxDistance, ClimbWall);
 
     
     public float CountDownTimer;
     public float CoolDownTimer;
+    public float ClimbTimer;
 
     // Start is called before the first frame update
     void Start()
@@ -64,7 +66,7 @@ public class Jumpy : MonoBehaviour
         
     }
 
-
+    
     
     // Update is called once per frame
     void Update()
@@ -74,7 +76,7 @@ public class Jumpy : MonoBehaviour
 
         CountDownTimer -= Time.deltaTime;
         CoolDownTimer += Time.deltaTime;
-
+        ClimbTimer -= Time.deltaTime;
         //float horizontal = Input.GetAxis("Horizontal") * Speed;
         //float vertical = Input.GetAxis("Vertical") * Speed;
         //Vector3 move = transform.right * horizontal + transform.forward * vertical;
@@ -84,17 +86,17 @@ public class Jumpy : MonoBehaviour
         Test.Evaluate(0.5f);
         Climb.Evaluate(0.5f);
 
-        if (Input.GetButtonDown("Jump") && Grounded && canJump == true)
+        if (Input.GetButtonDown("Jump") && Grounded && canJump == true && ClimbTimer <= 0f)
         {
             jumpTime = 0;
-
+            
 
         }
         else
         {
 
              velocity.y += Gravity * Time.deltaTime;
-            
+            ClimbTimer = 0;
 
 
 
@@ -120,7 +122,7 @@ public class Jumpy : MonoBehaviour
             characterController.Move(velocity * Time.deltaTime);
         if (Grounded)
         {
-            velocity.y = 0;
+            //velocity.y = 0;
 
         }
 
@@ -135,7 +137,8 @@ public class Jumpy : MonoBehaviour
 
             climbTime += Time.deltaTime;
             velocity.y = Climb.Evaluate(climbTime);
-
+            ClimbableWall = hit.transform.gameObject;
+            ClimbTimer = 0.001f;
         }
         else if (Input.GetKeyUp(KeyCode.W) || Climbable == false && Grounded)
         {
@@ -144,6 +147,13 @@ public class Jumpy : MonoBehaviour
             
 
         }
+        
+        //if(ClimbableWall == true && currentY < prevY)
+        //{
+        //    velocity.y = 0;
+
+
+        //}
 
         if (velocity.y >= 20f)
         {
@@ -152,7 +162,12 @@ public class Jumpy : MonoBehaviour
 
         }
 
-        
+        if (velocity.y >= -20f)
+        {
+            velocity.y = -20f;
+
+
+        }
 
         nextY = transform.position.y;
 
@@ -244,8 +259,8 @@ public class Jumpy : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireCube(transform.position + offsetpos1 + Vector3.down * offset, size);
-        Gizmos.DrawWireCube(transform.position + offsetpos2 + Vector3.up * offset, size);
+        Gizmos.DrawWireCube(transform.position + offsetpos1 + Vector3.down * offset, sizelow);
+        Gizmos.DrawWireCube(transform.position + offsetpos2 + Vector3.up * offset, sizehigh);
         Gizmos.DrawWireCube(transform.position + offsetpos3 + transform.forward * offset, sizeclimb);
     }
 }
