@@ -2943,7 +2943,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &601265513
 Transform:
   m_ObjectHideFlags: 0
@@ -2979,7 +2979,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 601265512}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -9063,6 +9063,10 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: -900840116002235059, guid: fa7f3ec942a26504ca759970d1f776bc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -900840116002235059, guid: fa7f3ec942a26504ca759970d1f776bc, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
@@ -9094,7 +9098,15 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 2315858124279826587, guid: fa7f3ec942a26504ca759970d1f776bc, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2604633548932962929, guid: fa7f3ec942a26504ca759970d1f776bc, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3243558677518091637, guid: fa7f3ec942a26504ca759970d1f776bc, type: 3}
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
@@ -9110,6 +9122,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 5419003050383532534, guid: fa7f3ec942a26504ca759970d1f776bc, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7505420860041744401, guid: fa7f3ec942a26504ca759970d1f776bc, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7567795136098443923, guid: fa7f3ec942a26504ca759970d1f776bc, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -9117,6 +9137,10 @@ PrefabInstance:
     - target: {fileID: 7734682849688961161, guid: fa7f3ec942a26504ca759970d1f776bc, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8769981019415192778, guid: fa7f3ec942a26504ca759970d1f776bc, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa7f3ec942a26504ca759970d1f776bc, type: 3}

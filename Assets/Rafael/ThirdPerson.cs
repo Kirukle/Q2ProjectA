@@ -28,7 +28,7 @@ public class ThirdPerson : MonoBehaviour
     public GameObject PrevObject;
     public GameObject NextObject;
 
-     
+  
     RaycastHit hit;
 
 
@@ -55,7 +55,6 @@ void Start()
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         LayerMask mask = LayerMask.GetMask("BlockWall");
-        RaycastHit hit;
 
 
         if (Input.GetKey(KeyCode.Equals))
@@ -66,25 +65,15 @@ void Start()
         }
 
         //raycast which detects if wall that interrupts raycast looking at player has the BlockWall Layer
-        if (Physics.Raycast(ray, out hit, 10,mask))
+        RaycastHit[] hits = Physics.RaycastAll(transform.position, transform.forward, 10, mask);
+        //if (Physics.Raycast(ray, out hit, 10, mask)
+        for(int i = 0; i< hits.Length; i++)
         {
-           
 
-            //    Debug.Log(hit.collider.gameObject);
-            //if(hit.transform.gameObject.tag == "Enemy")
-            //{
-            //    GameObject.Find("SillyMan").GetComponent<UnityPatrol>().enabled = false;
-            //    GameObject.Find("SillyMan").GetComponent<Followplayer>().enabled = true;
+            RaycastHit hit = hits[i];
 
-            //}
-            //Debug.DrawLine(ray.origin, hit.point);
-
-           
-
-           NextObject = hit.transform.gameObject;
-
-            //Stores the object that was last hit by the raycast
-            if(NextObject != WallObject)
+            NextObject = hit.transform.gameObject;
+            if (NextObject != WallObject)
             {
                 PrevObject = WallObject;
                 WallObject = NextObject;
@@ -92,48 +81,85 @@ void Start()
 
             }
 
-           
-            
-           
-
-            //Color nocolor = WallObject.GetComponent<MeshRenderer>().material.GetColor("_Color");
-            //nocolor.a = 0;
-
-            //Color color = PrevObject.GetComponent<MeshRenderer>().material.GetColor("_Color");
-            //color.a = 1;
-            //turns current wall invisible, makes previous wall that was invisible visible
-            WallObject.GetComponent<MeshRenderer>().enabled = false;   /*material.SetColor("_Color", nocolor);*/
-            PrevObject.GetComponent<MeshRenderer>().enabled = true;       /*material.SetColor("_Color", color);*/
-
-            //if (hit.transform.gameObject.tag == "BlockWall")
-            //{
-
-
-            //} 
-
-
-            //Now all I gotta do is figure out how to ignore colliders that are not the tag I want it to affect
-
-
-
-
-
-
-
-
+            WallObject.GetComponent<MeshRenderer>().enabled = false;
+            PrevObject.GetComponent<MeshRenderer>().enabled = true;
 
         }
-        else
-        {
-            // Color keepcolor = NextObject.GetComponent<MeshRenderer>().material.GetColor("_Color");
 
-            //keepcolor.a = 1;
-            //Makes sure the wall turns visible when going to another wall or back to looking at player
+        if (hits.Length == 0)
+        {
+
             NextObject.GetComponent<MeshRenderer>().enabled = true;
 
-
         }
-       
+
+        //{
+
+
+        //    Debug.Log(hit.collider.gameObject);
+        //if(hit.transform.gameObject.tag == "Enemy")
+        //{
+        //    GameObject.Find("SillyMan").GetComponent<UnityPatrol>().enabled = false;
+        //    GameObject.Find("SillyMan").GetComponent<Followplayer>().enabled = true;
+
+        //}
+        //Debug.DrawLine(ray.origin, hit.point);
+
+
+
+
+
+        //Stores the object that was last hit by the raycast
+        //    if(NextObject != WallObject)
+        //    {
+        //        PrevObject = WallObject;
+        //        WallObject = NextObject;
+
+
+        //    }
+
+
+
+
+
+        //    //Color nocolor = WallObject.GetComponent<MeshRenderer>().material.GetColor("_Color");
+        //    //nocolor.a = 0;
+
+        //    //Color color = PrevObject.GetComponent<MeshRenderer>().material.GetColor("_Color");
+        //    //color.a = 1;
+        //    //turns current wall invisible, makes previous wall that was invisible visible
+        //    WallObject.GetComponent<MeshRenderer>().enabled = false;   /*material.SetColor("_Color", nocolor);*/
+        //    PrevObject.GetComponent<MeshRenderer>().enabled = true;       /*material.SetColor("_Color", color);*/
+
+        //    //if (hit.transform.gameObject.tag == "BlockWall")
+        //    //{
+
+
+        //    //} 
+
+
+        //    //Now all I gotta do is figure out how to ignore colliders that are not the tag I want it to affect
+
+
+
+
+
+
+
+
+
+        //}
+        //else
+        //{
+        //    // Color keepcolor = NextObject.GetComponent<MeshRenderer>().material.GetColor("_Color");
+
+        //    //keepcolor.a = 1;
+        //    //Makes sure the wall turns visible when going to another wall or back to looking at player
+        //    NextObject.GetComponent<MeshRenderer>().enabled = true;
+
+
+        //}
+
 
 
 
