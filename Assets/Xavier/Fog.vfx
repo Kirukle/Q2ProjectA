@@ -604,7 +604,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614583}
   - {fileID: 8926484042661614781}
   dataType: 0
-  capacity: 60000
+  capacity: 50000
   stripCapacity: 16
   particlePerStripCount: 16
   m_Space: 0
@@ -2992,7 +2992,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Mesh, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"obj":{"fileID":2118842542879803867,"guid":"80bef715f398fc140ada4ab1d86140e0","type":3}}'
+      m_SerializableObject: '{"obj":{"fileID":9005852911811730538,"guid":"80bef715f398fc140ada4ab1d86140e0","type":3}}'
     m_Space: 2147483647
   m_Property:
     name: mesh
