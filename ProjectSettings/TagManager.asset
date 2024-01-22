@@ -7,6 +7,7 @@ TagManager:
   - Intractable
   - Text
   - BlockWall
+  - EndClimb
   layers:
   - Default
   - TransparentFX

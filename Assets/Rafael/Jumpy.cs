@@ -15,7 +15,7 @@ public class Jumpy : MonoBehaviour
     public float Gravity = -9.8f;
     public bool canJump;
     public GameObject player;
-
+    public GameObject maincamera;
     bool JumpEnd;
 
     float currentY;
@@ -86,7 +86,7 @@ public class Jumpy : MonoBehaviour
         Test.Evaluate(0.5f);
         Climb.Evaluate(0.5f);
 
-        if (Input.GetButtonDown("Jump") && Grounded && canJump == true && ClimbTimer <= 0f)
+        if (Input.GetButtonDown("Jump") && Grounded && canJump == true )
         {
             jumpTime = 0;
             
@@ -96,7 +96,7 @@ public class Jumpy : MonoBehaviour
         {
 
              velocity.y += Gravity * Time.deltaTime;
-            ClimbTimer = 0;
+            
 
 
 
@@ -122,7 +122,7 @@ public class Jumpy : MonoBehaviour
             characterController.Move(velocity * Time.deltaTime);
         if (Grounded)
         {
-            //velocity.y = 0;
+           
 
         }
 
@@ -132,19 +132,21 @@ public class Jumpy : MonoBehaviour
 
         }
 
-        if (Input.GetKey(KeyCode.W) && Climbable && CanClimb == true)
+        if (Input.GetKey(KeyCode.W) && Climbable && CanClimb == true && ClimbTimer <= 0f)
         {
 
             climbTime += Time.deltaTime;
             velocity.y = Climb.Evaluate(climbTime);
             ClimbableWall = hit.transform.gameObject;
-            ClimbTimer = 0.001f;
+            maincamera.GetComponent<ThirdPerson>().distance = 20;
+            
+
         }
         else if (Input.GetKeyUp(KeyCode.W) || Climbable == false && Grounded)
         {
 
             climbTime = 0;
-            
+            maincamera.GetComponent<ThirdPerson>().distance = 10;
 
         }
         
@@ -162,12 +164,12 @@ public class Jumpy : MonoBehaviour
 
         }
 
-        if (velocity.y >= -20f)
-        {
-            velocity.y = -20f;
+        //if (velocity.y >= -20f)
+        //{
+        //    velocity.y = -20f;
 
 
-        }
+        //}
 
         nextY = transform.position.y;
 
@@ -189,7 +191,7 @@ public class Jumpy : MonoBehaviour
 
         }
 
-        if (transform.position.y >= -0.6f)
+        if (transform.position.y >= -27f)
         {
 
             CountDownTimer = 1.0f;
@@ -249,7 +251,7 @@ public class Jumpy : MonoBehaviour
        
 
 
-
+        
 
 
 
@@ -257,6 +259,22 @@ public class Jumpy : MonoBehaviour
 
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+       if(other.tag == "EndClimb")
+        {
+
+            velocity.y = 0;
+            ClimbTimer = 1f;
+        }
+        else if(ClimbTimer <=0f)
+        {
+            return;
+
+        }
+
+
+    }
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireCube(transform.position + offsetpos1 + Vector3.down * offset, sizelow);

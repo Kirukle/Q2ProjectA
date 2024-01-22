@@ -149,6 +149,7 @@ MonoBehaviour:
   Gravity: -20
   canJump: 1
   player: {fileID: 291285579862748738}
+  maincamera: {fileID: 0}
   ClimbableWall: {fileID: 0}
   Test:
     serializedVersion: 2
