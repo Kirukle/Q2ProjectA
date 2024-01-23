@@ -198,6 +198,10 @@ PrefabInstance:
       value: BetterVHS (1)
       objectReference: {fileID: 0}
     - target: {fileID: 8929672524547978648, guid: 2c32ecd2f7dd2cc4ba2bf40587e78607, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8929672524547978648, guid: 2c32ecd2f7dd2cc4ba2bf40587e78607, type: 3}
       propertyPath: m_TagString
       value: Collector
       objectReference: {fileID: 0}
@@ -3499,6 +3503,10 @@ PrefabInstance:
     - target: {fileID: 8929672524547978648, guid: 2c32ecd2f7dd2cc4ba2bf40587e78607, type: 3}
       propertyPath: m_Name
       value: BetterVHS (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8929672524547978648, guid: 2c32ecd2f7dd2cc4ba2bf40587e78607, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8929672524547978648, guid: 2c32ecd2f7dd2cc4ba2bf40587e78607, type: 3}
       propertyPath: m_TagString
@@ -7189,9 +7197,6 @@ MonoBehaviour:
   distance: 10
   sensitivity: 400
   speed: 0
-  WallObject: {fileID: 0}
-  PrevObject: {fileID: 0}
-  NextObject: {fileID: 0}
 --- !u!20 &1439192764
 Camera:
   m_ObjectHideFlags: 0
@@ -7360,6 +7365,10 @@ PrefabInstance:
     - target: {fileID: 8929672524547978648, guid: 2c32ecd2f7dd2cc4ba2bf40587e78607, type: 3}
       propertyPath: m_Name
       value: BetterVHS (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8929672524547978648, guid: 2c32ecd2f7dd2cc4ba2bf40587e78607, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8929672524547978648, guid: 2c32ecd2f7dd2cc4ba2bf40587e78607, type: 3}
       propertyPath: m_TagString
@@ -10876,6 +10885,10 @@ PrefabInstance:
     - target: {fileID: 8929672524547978648, guid: 2c32ecd2f7dd2cc4ba2bf40587e78607, type: 3}
       propertyPath: m_Name
       value: BetterVHS
+      objectReference: {fileID: 0}
+    - target: {fileID: 8929672524547978648, guid: 2c32ecd2f7dd2cc4ba2bf40587e78607, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8929672524547978648, guid: 2c32ecd2f7dd2cc4ba2bf40587e78607, type: 3}
       propertyPath: m_TagString
