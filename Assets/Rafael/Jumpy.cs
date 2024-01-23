@@ -139,7 +139,7 @@ public class Jumpy : MonoBehaviour
             climbTime += Time.deltaTime;
             velocity.y = Climb.Evaluate(climbTime);
             ClimbableWall = hit.transform.gameObject;
-            maincamera.GetComponent<ThirdPerson>().distance = 20;
+            maincamera.GetComponent<ThirdPerson>().distance = 15;
             
 
         }

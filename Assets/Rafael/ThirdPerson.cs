@@ -24,13 +24,9 @@ public class ThirdPerson : MonoBehaviour
     Vector3 badDistance;
     Vector3 goodDistance;
 
-    public GameObject WallObject;
-    public GameObject PrevObject;
-    public GameObject NextObject;
-
-    public GameObject[] WallObjects;
-    public GameObject[] PrevObjects;
-    public GameObject[] NextObjects;
+    public RaycastHit[] WallObjects;
+    public RaycastHit[] PrevObjects;
+    public RaycastHit[] NextObjects;
 
 
 
@@ -69,33 +65,37 @@ public class ThirdPerson : MonoBehaviour
         //raycast which detects if wall that interrupts raycast looking at player has the BlockWall Layer
         RaycastHit[] hits = Physics.RaycastAll(transform.position, transform.forward, 10, mask);
         //if (Physics.Raycast(ray, out hit, 10, mask)
-        for(int i = 0; i< hits.Length; i++)
+
+        NextObjects = hits;
+
+        if (NextObjects != WallObjects)
         {
-
-            RaycastHit hit = hits[i];
-
-            NextObject = hit.transform.gameObject;
-            if (NextObject != WallObject)
-            {
-                PrevObject = WallObject;
-                WallObject = NextObject;
-
-
-            }
-
-           
-            WallObject.GetComponent<MeshRenderer>().enabled = false;
-            PrevObject.GetComponent<MeshRenderer>().enabled = true;
-
+            PrevObjects = WallObjects;
+            WallObjects = NextObjects;
         }
 
-        if (hits.Length == 0)
+        if (hits.Length > 0)
         {
+            foreach (RaycastHit hit in WallObjects)
+                hit.collider.GetComponent<MeshRenderer>().enabled = false;
+            foreach (RaycastHit hit in NextObjects)
+                hit.collider.GetComponent<MeshRenderer>().enabled = false;
 
-            NextObject.GetComponent<MeshRenderer>().enabled = true;
+
+
 
         }
+       
 
+        else if (hits.Length == 0)
+        {
+
+            foreach (RaycastHit hit in PrevObjects)
+                hit.collider.GetComponent<MeshRenderer>().enabled = true;
+            foreach (RaycastHit hit in NextObjects)
+                hit.collider.GetComponent<MeshRenderer>().enabled = true;
+
+        }
         //{
 
 
@@ -173,7 +173,7 @@ public class ThirdPerson : MonoBehaviour
     void LateUpdate()
     {
         currentX += Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
-        currentY += Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
+        currentY -= Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
 
         currentY = Mathf.Clamp(currentY, YMin, YMax);
 
