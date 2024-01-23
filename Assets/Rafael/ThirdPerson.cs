@@ -78,8 +78,7 @@ public class ThirdPerson : MonoBehaviour
         {
             foreach (RaycastHit hit in WallObjects)
                 hit.collider.GetComponent<MeshRenderer>().enabled = false;
-            foreach (RaycastHit hit in NextObjects)
-                hit.collider.GetComponent<MeshRenderer>().enabled = false;
+           
 
 
 
@@ -90,15 +89,16 @@ public class ThirdPerson : MonoBehaviour
         else if (hits.Length == 0)
         {
 
+            
             foreach (RaycastHit hit in PrevObjects)
                 hit.collider.GetComponent<MeshRenderer>().enabled = true;
-            foreach (RaycastHit hit in NextObjects)
+            foreach (RaycastHit hit in WallObjects)
                 hit.collider.GetComponent<MeshRenderer>().enabled = true;
 
         }
         //{
 
-
+        
         //    Debug.Log(hit.collider.gameObject);
         //if(hit.transform.gameObject.tag == "Enemy")
         //{
@@ -182,8 +182,8 @@ public class ThirdPerson : MonoBehaviour
         transform.position = lookAt.position + rotation * Direction;
         transform.LookAt(lookAt.position);
 
-      
 
+        
 
 
     }

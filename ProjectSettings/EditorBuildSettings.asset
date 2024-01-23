@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Rafael/TestSceneRafael.unity
     guid: 459cd4e2480aa904d90af726fd6421b7
   - enabled: 0
+    path: Assets/Rafael/TestSceneRafael2.unity
+    guid: 0f01bf7fe4fa7894f854bc601bfae805
+  - enabled: 0
     path: Assets/Xavier/Xavier.unity
     guid: 229b3dee961d84e47888e61169b4a571
   m_configObjects: {}
