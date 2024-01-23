@@ -105,7 +105,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 1500
+      m_SerializableObject: 3000
     min: -Infinity
     max: Infinity
     enumValues: []
@@ -119,7 +119,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 2000
+      m_SerializableObject: 3500
     min: -Infinity
     max: Infinity
     enumValues: []
@@ -1510,7 +1510,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.AABox, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"center":{"x":-93.885009765625,"y":309.3971862792969,"z":-14.77606201171875},"size":{"x":2402.0966796875,"y":623.4738159179688,"z":1236.9356689453125}}'
+      m_SerializableObject: '{"center":{"x":-229.3309326171875,"y":309.3971862792969,"z":-128.71434020996095},"size":{"x":1278.674072265625,"y":623.4738159179688,"z":668.19580078125}}'
     m_Space: 0
   m_Property:
     name: Box
@@ -1859,7 +1859,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 1500
+      m_SerializableObject: 3000
     m_Space: 2147483647
   m_Property:
     name: o
@@ -1939,7 +1939,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 2000
+      m_SerializableObject: 3500
     m_Space: 2147483647
   m_Property:
     name: o
