@@ -28,8 +28,9 @@ public class ThirdPerson : MonoBehaviour
     public GameObject PrevObject;
     public GameObject NextObject;
 
-  
-    RaycastHit hit;
+    public GameObject[] WallObjects;
+    public GameObject[] PrevObjects;
+    public GameObject[] NextObjects;
 
 
 
@@ -41,8 +42,9 @@ public class ThirdPerson : MonoBehaviour
 
 
 
-// Start is called before the first frame update
-void Start()
+
+    // Start is called before the first frame update
+    void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -81,6 +83,7 @@ void Start()
 
             }
 
+           
             WallObject.GetComponent<MeshRenderer>().enabled = false;
             PrevObject.GetComponent<MeshRenderer>().enabled = true;
 

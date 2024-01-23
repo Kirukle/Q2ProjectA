@@ -192,7 +192,7 @@ public class Jumpy : MonoBehaviour
 
         }
 
-        if (transform.position.y >= -27f)
+        if (transform.position.y >= -29f)
         {
 
             CountDownTimer = 1.0f;
