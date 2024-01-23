@@ -18,29 +18,17 @@ public class MenuMusicLoop : MonoBehaviour
         else
         {
             Destroy(gameObject);
+            return;
         }
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        SceneManager.sceneLoaded += OnSceneLoaded; // SceneLoaded event
         Scene currentScene = SceneManager.GetActiveScene();
         if (currentScene.name == "Main Menu")
         {
-            if (!musicSource.isPlaying) // Check if the music is not playing
-            {
-                musicSource.clip = musicStart;
-                musicSource.Play();
-            }
-        }
-    }
-
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        if (scene.name == "Main Menu")
-        {
-            if (!musicSource.isPlaying) // Check if the music is not playing
+            if (!musicSource.isPlaying)
             {
                 musicSource.clip = musicStart;
                 musicSource.Play();
