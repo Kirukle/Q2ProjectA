@@ -21,7 +21,8 @@ public class Jumpy : MonoBehaviour
     float currentY;
     float nextY;
     float prevY;
-
+    public AudioSource JumpSfx;
+    public AudioSource LandSfx;
     public GameObject ClimbableWall;
     public AnimationCurve Test;
     public float jumpTime;
@@ -106,7 +107,7 @@ public class Jumpy : MonoBehaviour
             jumpTime += Time.deltaTime;
             velocity.y = Test.Evaluate(jumpTime);
             CoolDownTimer = 0f;
-
+            JumpSfx.Play();
 
 
         }
@@ -230,7 +231,7 @@ public class Jumpy : MonoBehaviour
 
         if ( Grounded == true)
         {
-
+            LandSfx.Play();
             JumpEnd = false;
 
             
