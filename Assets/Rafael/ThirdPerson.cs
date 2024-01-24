@@ -28,6 +28,8 @@ public class ThirdPerson : MonoBehaviour
     public RaycastHit[] PrevObjects;
     public RaycastHit[] NextObjects;
 
+    public int NextObj;
+    public int PrevObj;
 
 
 
@@ -68,37 +70,57 @@ public class ThirdPerson : MonoBehaviour
 
         NextObjects = hits;
 
+
         if (NextObjects != WallObjects)
         {
-            PrevObjects = WallObjects;
+            
             WallObjects = NextObjects;
         }
 
         if (hits.Length > 0)
         {
-            foreach (RaycastHit hit in WallObjects)
+            foreach (RaycastHit hit in NextObjects)
+            {
+
                 hit.collider.GetComponent<MeshRenderer>().enabled = false;
-           
+                
 
+            }
 
+            PrevObjects = WallObjects;
+            foreach (RaycastHit hit in NextObjects)
+                NextObj = hit.collider.GetInstanceID();
+            foreach (RaycastHit hit in WallObjects)
+                PrevObj = hit.collider.GetInstanceID();
 
 
         }
-       
+
 
         else if (hits.Length == 0)
         {
-
             
-            foreach (RaycastHit hit in PrevObjects)
-                hit.collider.GetComponent<MeshRenderer>().enabled = true;
+
             foreach (RaycastHit hit in WallObjects)
                 hit.collider.GetComponent<MeshRenderer>().enabled = true;
-
+            foreach (RaycastHit hit in PrevObjects)
+                hit.collider.GetComponent<MeshRenderer>().enabled = true;
+            foreach (RaycastHit hit in NextObjects)
+                hit.collider.GetComponent<MeshRenderer>().enabled = true;
         }
+
+        foreach (RaycastHit hit in WallObjects)
+            Debug.Log("wallobject" + hit.collider);
+
+        foreach (RaycastHit hit in PrevObjects)
+            Debug.Log("prevobject" + hit.collider);
+
+        foreach (RaycastHit hit in NextObjects)
+            Debug.Log("nextobject" + hit.collider);
+
         //{
 
-        
+
         //    Debug.Log(hit.collider.gameObject);
         //if(hit.transform.gameObject.tag == "Enemy")
         //{

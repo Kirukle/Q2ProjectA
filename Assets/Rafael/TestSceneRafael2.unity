@@ -3501,6 +3501,8 @@ MonoBehaviour:
   distance: 10
   sensitivity: 400
   speed: 0
+  NextObj: 0
+  PrevObj: 0
 --- !u!114 &835800499
 MonoBehaviour:
   m_ObjectHideFlags: 0

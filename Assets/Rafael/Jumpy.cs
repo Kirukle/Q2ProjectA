@@ -232,6 +232,7 @@ public class Jumpy : MonoBehaviour
         if ( Grounded == true)
         {
             LandSfx.Play();
+            PlayerAnim.SetBool("Jumping", false);
             JumpEnd = false;
 
             
