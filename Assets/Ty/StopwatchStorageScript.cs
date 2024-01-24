@@ -6,22 +6,22 @@ using TMPro;
 public class StopwatchStorageScript : MonoBehaviour
 {
     public TMP_Text timeText;
-    public int SWminutes;
-    public int SWseconds;
+    public float SWmins;
+    public float SWsecs;
+    public GameObject Stopwatch;
 
     // Start is called before the first frame update
     void Start()
     {
-        PlayerPrefs.SetInt("StopwatchTimeMinutes", 1);
-        PlayerPrefs.SetInt("StopwatchTimeSeconds", 11);
-       SWminutes =  PlayerPrefs.GetInt("StopwatchTimeMinutes");
-       SWseconds = PlayerPrefs.GetInt("StopwatchTimeSeconds");
 
-        string timeText = ("Completed in " + SWminutes.ToString() + ":" + SWseconds.ToString() + " sec");
     }
 
     // Update is called once per frame
     void Update()
     {
+        SWmins = Stopwatch.GetComponent<StopwatchTimerScript>().SWmins;
+        SWsecs = Stopwatch.GetComponent<StopwatchTimerScript>().SWsecs;
+
+        timeText.text = ("Completed in " + SWmins.ToString() + ":" + SWsecs.ToString() + " sec");
     }
 }

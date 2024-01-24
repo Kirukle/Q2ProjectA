@@ -6,6 +6,8 @@ public class CollectionScript : MonoBehaviour
 {
     public int CollectorsCollected = 0;
     public GameObject Storage;
+    public GameObject Stopwatch;
+    public GameObject VHS;
 
     // Start is called before the first frame update
     void Start()
@@ -23,8 +25,10 @@ public class CollectionScript : MonoBehaviour
         if (gameObject.tag == "Collector")
         {
             Storage.GetComponent<StorageScript>().Collectors++;
+            Stopwatch.GetComponent<CollectStorageScript>().Collectors++;
+
             Debug.Log("AGGG");
-            this.gameObject.SetActive(false);
+            VHS.SetActive(false);
         }
     }
 }
