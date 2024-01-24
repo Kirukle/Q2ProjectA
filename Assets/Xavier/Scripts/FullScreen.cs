@@ -7,6 +7,11 @@ public class FullScreen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+    }
+
+    private void Awake()
+    {
         Cursor.lockState = CursorLockMode.None;
     }
 
