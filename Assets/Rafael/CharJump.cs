@@ -62,7 +62,7 @@ public class CharJump : MonoBehaviour
 
 
         }
-        if (Input.GetButton("Jump") && Grounded)
+        if (Input.GetButton("Jump") && Grounded || Input.GetKeyDown(KeyCode.LeftShift) && Input.GetButton("Jump") && Grounded)
         {
             jumpTime += Time.deltaTime;
             velocity.y = Test.Evaluate(jumpTime);

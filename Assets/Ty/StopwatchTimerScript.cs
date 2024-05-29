@@ -11,6 +11,7 @@ public class StopwatchTimerScript : MonoBehaviour
     public bool timeIsRunning = false;
     public float SWmins;
     public float SWsecs;
+    public float SWmilisecs;
 
     // Start is called before the first frame update
     void Start()
@@ -35,9 +36,11 @@ public class StopwatchTimerScript : MonoBehaviour
         timeToDisplay += 1;
         float minutes = Mathf.FloorToInt(timeToDisplay / 60);
         float seconds = Mathf.FloorToInt(timeToDisplay % 60);
+        float milliseconds = (int)(Time.timeSinceLevelLoad * 1000f) % 1000;
 
         SWsecs = seconds;
         SWmins = minutes;
+        SWmilisecs = milliseconds;
     }
 
     void OnGUI()
@@ -50,7 +53,7 @@ public class StopwatchTimerScript : MonoBehaviour
         style.alignment = TextAnchor.UpperLeft;
         style.fontSize = h * 4 / 100;
         style.normal.textColor = new Color(0f, 0f, 0.5f, 1.0f);
-        string text = string.Format("{0:00} : {1:00}", SWmins, SWsecs);
+        string text = string.Format("{0:00} : {1:00} : {2:00}", SWmins, SWsecs,SWmilisecs);
         GUI.Label(rect, text, style);
     }
 

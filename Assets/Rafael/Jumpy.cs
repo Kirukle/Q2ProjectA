@@ -87,7 +87,7 @@ public class Jumpy : MonoBehaviour
         Test.Evaluate(0.5f);
         Climb.Evaluate(0.5f);
 
-        if (Input.GetButtonDown("Jump") && Grounded && canJump == true )
+        if (Input.GetButtonDown("Jump") && Grounded && canJump == true || Input.GetKeyDown(KeyCode.LeftShift) && Input.GetButton("Jump") && Grounded)
         {
             jumpTime = 0;
             
